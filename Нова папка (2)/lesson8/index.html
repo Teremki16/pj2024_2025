@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+        integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+        crossorigin='anonymous'></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <div class="prise">
+            <label for="min">Min: </label>
+            <input type="number" name="min" id="min" value="0">
+            <label for="max">Max: </label>
+            <input type="number" name="max" id="max" value="1">
+            <div class="radios"></div>
+            <input type="reset" value="Онулити">
+        </div>
+    </form>
+    <button class="randomize">Get random Activity</button>
+    <div class="activity"></div>
+</body>
+
+</html>

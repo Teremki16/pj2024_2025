@@ -1,0 +1,41 @@
+*{
+    font-family: monospace;
+}
+
+body{
+    background-color: steelblue;
+}
+button, input{
+    font-size: 2rem;
+    display: block;
+    margin: 1rem auto;
+    color: orange;
+    background-color: steelblue;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0 0;
+    cursor: pointer;
+
+}
+.container{
+    background-color: rgb(0, 0, 0, 0,3);
+    width: 50rem;
+    margin: 5rem auto;
+    padding: 2rem;
+    border-radius: 3rem;
+}
+
+#array{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.item{
+font-size: 5rem;
+background-color: orange;
+text-align: center;
+line-height: 15rem;
+border-radius: 3rem;
+}
+

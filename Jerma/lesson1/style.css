@@ -1,0 +1,134 @@
+/* font-family: "Sevillana", cursive; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #9f0102;
+    color: black;
+    font-family: "Sevillana", cursive;
+}
+
+header {
+   text-align: center;
+   padding: 20px;
+   font-size: 1rem;
+   font-weight: 900;
+   text-shadow: 2px 2px black;
+   position: relative;
+}
+
+.lamp {
+    position: absolute;
+    top: 3rem;
+    width: 10rem;
+    animation: shake ease-in-out 3s infinite;
+
+}
+
+.l1 {
+    left: 1rem;
+}
+
+.l2 {
+    right: 1rem;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateY(-1rem);
+    }
+    50% {
+        transform: translateY(1rem);
+    }
+    100% {
+        transform: translateY(-1rem);
+    }
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    border: 5px solid black;
+    min-height: 50vh;
+    padding: 3rem;
+    background-color: #7f0102;
+    width: 50%;
+}
+
+.subcontainer {
+    border: 5px solid black;
+    height: 100%;
+    padding: 2rem;
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subcontainer img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input{
+    min-width: 15rem;
+    padding: 0.3rem;
+    border-radius: 5rem;
+    background-color: rgb(61, 61, 61);
+}
+
+label {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px black;
+}
+
+input[type="submit"], input[type="time"]{
+    min-width: auto;
+    padding: 0.3rem 3rem;
+}
+@media all and (max-Width: 500px){
+    main {
+        flex-direction: column;
+        margin: 3rem;
+        gap: 3rem; 
+        
+    }
+    .container {
+        width: auto;
+    }
+}
+
+table {
+    width: 100%;
+    margin: 2rem;
+}
+
+th {
+  background-color: rgb(255, 0, 0);
+  border: 1px solid #767474;
+}
+
+th:first-child {
+    border-radius: 0.5rem 0 0 0;
+}
+th:last-child {
+    border-radius: 0 0.5rem 0 0;
+}
+
+td {
+    border: 2px solid white;
+}

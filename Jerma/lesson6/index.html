@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lesson4/style.css">
+    <script src="script.js" defer></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css' integrity='sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw==' crossorigin='anonymous'/>
+</head>
+<body>
+    <header class="logo">
+        <img src="../lesson4/pokeapi.png" alt="">
+    </header>
+    <div class="sortBar">
+        <form id="sort-form">
+        <label for="byId">ID:  </label>
+        <input type="radio" name="sort" id="byId" value="id">
+        <label for="byName">Name:  </label>
+        <input type="radio" name="sort" id="Name" value="name">
+    </form>
+    <form id="war-form">
+        <label for="byHp">Hp:  </label>
+        <input type="radio" name="war" id="byHP" value="hp">
+        <label for="byAttack">Attack:  </label>
+        <input type="radio" name="war" id="byAttack" value="attack">
+        <label for="byDefense">Defense:  </label>
+        <input type="radio" name="war" id="byDefense" value="defense">
+    </form>
+    <form id="dir-form">
+        <label for="byB">to Biggest:  </label>
+        <input type="radio" name="war" id="byB" value="b">
+        <label for="byS">to smaller:  </label>
+        <input type="radio" name="war" id="byS" value="s">
+    </form>
+    </div>
+    <div class="filterBar">
+        <form id="filter">
+            <label for="Search">Name</label>
+            <input type="text" name="search" id="search">
+        </form>
+    </div>
+    <div class="list">
+     
+    </div>
+</body>
+</html>
