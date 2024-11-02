@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-image: url("texture.jpg");
+}
+
+.form {
+    background-color: white;
+    width: fit-content;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    border: 2px solid black;
+    border-radius: 5555px;
+}
+
+#search {
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 1.5rem;
+}
+
+#searchBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.pokemon {
+    background-color: white;
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 2rem;
+}
+
+.pokemon .id {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.pokemon h1 {
+    text-align: center;
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+}
+
+.pokemon img {
+    height: 6rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.pokemon ul {
+    margin: 2rem;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logo {
+    background-color: white;
+    padding: 1rem 3rem;
+    margin: 1rem auto;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 1.5rem;
+}
+
+.results {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    list-style: none;
+}
+
+.results a {
+    background-color: white;
+    display: block;
+    padding: 0.3rem 1rem;
+    margin-top: 0.2rem;
+    border-radius: 2rem;
+    border: 2px solid black;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3rem;
+}
+
+.nav button {
+    border-radius: 5px;
+    font-weight: 900;
+    border-color: aquamarine;
+    color: aquamarine;
+}
+
+.pokemon button {
+    margin: 10px auto;
+    border: 2px solid aquamarine;
+    color: aquamarine;
+    font-size: 1.5rem;
+    display: block;
+    background-color: white;
+}
+
+.bar {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.section:nth-child(1) {
+    color: red;
+}
+
+.section:nth-child(2) {
+    color: blue;
+}
+
+.section:nth-child(3) {
+    color: yellow;
+}
+
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+
+.list .pokemon {
+    width: auto;
+}
+
+.sortBar {
+    background-color: white;
+    padding: 1rem;
+    border: 2px solid black;
+    margin: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+}

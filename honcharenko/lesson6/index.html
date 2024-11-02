@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css'
+        integrity='sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ=='
+        crossorigin='anonymous' />
+</head>
+
+<body>
+    <header class="logo">
+        <h1>POKEMONS</h1>
+    </header>
+    <div class="sortBar">
+        <form id="sort-form">
+            <label for="byid">ID</label>
+            <input type="radio" name="sort" id="byid" value="id">
+            <label for="byName">Name:</label>
+            <input type="radio" name="sort" id="byName" value="name">
+        </form>
+
+        <form id="war-form">
+            <label for="byHp">HP </label>
+            <input type="radio" name="war" id="byHP" value="hp">
+            <label for="byAttack">Attack:</label>
+            <input type="radio" name="war" id="byAttack" value="attack">
+            <label for="byDefense">Defens</label>
+            <input type="radio" name="war" id="byDefense" value="defense">
+        </form>
+        <form id="dir-form">
+            <label for="byB">to Biggest </label>
+            <input type="radio" name="war" id="byB" value="b">
+            <label for="byS">to Smaller: </label>
+            <input type="radio" name="war" id="byS" value="s">
+
+        </form>
+    </div>
+    <div class="filterBar">
+        <form id="filter">
+            <label for="Search">Name</label>
+            <input type="text" name="search" id="search">
+        </form>
+    </div>
+    <div class="list">
+    </div>
+</body>
+
+</html>
