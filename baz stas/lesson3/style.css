@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-family: "Faster one";
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.hometown{
+text-align: center;
+margin: 3rem 0;
+}
+
+.members{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex: wrap;
+}
+
+
+.cats{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex: wrap;
+}
