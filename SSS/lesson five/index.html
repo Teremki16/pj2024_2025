@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            gap: 1rem;
+            font-family: "Permanent Marker", cursive;
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px 0 black;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .reset{
+            background-color: white;
+            color: black;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px 0 black;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .activity {
+            color: black;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px 0 black;
+            max-width: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="price">
+            <label for="min">Min:</label>
+            <input type="number" name="min" id="min" value="0">
+            <label for="max">Max:</label>
+            <input type="number" name="max" id="max" value="1">
+            <div class="radios"></div>
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <button class="randomize">Get random</button>
+    <div class="activity"></div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'
+        integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=='
+        crossorigin='anonymous'></script>
+    <script defer>
+        let url = "https://bored.api.lewagon.com/api/activity/"
+        let types = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "diy"]
+
+        $.each(types, (i, t) => {
+            $(".radios").append(`
+                <label for="${t}">${t}</label>
+                <input type="radio" name="type" value="${t}" id="${t}">
+            `)
+        })
+
+        $(".activity").hide()
+
+        $(".randomize").on("click", () => {
+            let query = $("form").serialize()
+            $.ajax(url, {
+                dataType: "json",
+
+                success: function (result) {
+                    $(".activity").show()
+                    $(".activity").html(`
+                    <h2>${result.activity}</h2>
+                    <p>Type:${result.type}</p>
+                    <p>Price:${result.price}</p>
+                    <p>Participants:${result.participants}</p>
+                    `)
+
+                },
+                error: function (err) {
+                    $(".activity").html(JSON.stringify(err))
+                }
+            })
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
