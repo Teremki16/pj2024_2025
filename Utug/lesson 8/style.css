@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    background:linear-gradient(to right, rgb(143, 102, 84),rgb(123, 81, 81));
+    font-size: 14pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    gap: 1rem;
+}
+
+button {
+    background-color: rgba(191, 146, 146, 0.829);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 1.3rem;
+    color: rgb(247, 204, 204);
+    font-size: 1.5rem;
+}
+
+.activity{
+    background-color: rgba(191, 146, 146, 0.626);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: rgb(232, 183, 183);
+
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0.5rem;
+    justify-items: start;
+    background-color: rgba(191, 146, 146, 0.626);
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+}
