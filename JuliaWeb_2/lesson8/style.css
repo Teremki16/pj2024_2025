@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right, orange, yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+}
+button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 5rem;
+}
+.activity{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 1.5rem;
+}

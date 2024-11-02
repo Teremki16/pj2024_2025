@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+body{
+    background-image: url("texture.jpg");
+}
+.form{
+    background-color: white;
+    width : 300px;
+    margin: 5rem auto;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 5rem
+}
+.form input{
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 17px;
+}
+.form button{
+    background-color: white;
+    border: none;
+    font-size: 17px;
+}
+.pokemon{
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: white;
+    width: fit-content;
+}
+.pokemon .id{
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+
+}
+.pokemon h1{
+    text-align: center;
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+
+}
+.pokemon img{
+    margin: 0 auto;
+    width: 6rem;
+    display: block;
+}
+.pokemon ul{
+    margin: 2rem;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+
+.bar{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+.section:nth-child(1){
+    color: red;
+}
+.section:nth-child(2){
+    color: green;
+}
+.section:nth-child(3){
+    color: blue;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,auto));
+    gap: 2rem;
+    padding: 1rem;
+}
+.list.pokemon{
+    width: auto;
+}
+
+.sortBar{
+    background-color: white;
+    padding: 1rem;
+    border: 2px solid black;
+    margin: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
