@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(texture.jpg);
+}
+
+.form{
+    background-color: white;
+    width: fit-content;
+    padding: 1rem;
+    justify-content: center;
+    margin: 5rem auto;
+    border-radius: 9rem;
+    border: black 1px solid;
+    
+}
+
+input {
+    border-radius: 1rem;
+    border: none; 
+    border-bottom:  black 1px solid;
+}
+input:focus {
+    padding: 0.5rem;
+    border-bottom: greenyellow 1px solid; 
+    outline: none;
+
+}
+
+.form button{
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: #9e1010;
+    color: white;
+    font-weight: bold;  
+}
+
+.pokemon {
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 1rem;
+}
+
+.id {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.pokemon img {
+    width: 150px;
+}
+
+.pokemon h1 {
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.pokemon ul{
+    padding: 1rem 2rem;
+}
+
+.logo {
+    width: fit-content;
+    margin: 1rem auto;
+    background-color: white;
+    padding: 1rem 3rem;
+    border: 2px solid black;
+    border-radius: 1.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    gap: 5px;
+}
+
+.list button {
+    padding: 0.3rem 1rem;
+    border-radius: 555px;
+    background-color: white;
+    text-align: start;
+}
+
+.list button:hover {
+    box-shadow: 0 0 5px rgb(39, 38, 38);
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    background-color: white;
+    border: 2px solid ;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+
+nav button, .pokemon button {
+    border: 2px solid aquamarine;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    font-weight: 700;
+    color: aquamarine;
+}
+
+.pokemon button {
+    border-radius: 2px;
+    display: block;
+    margin: 10px auto;
+}
+
+nav button:hover {
+    background-color: aquamarine;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    border-color: gray;
+    color: gray;
+}
+
+.bar {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+
+}
+
+.el:nth-child(1){
+    color: #9e1010;
+}
+
+.el:nth-child(2){
+    color: rgb(8, 59, 8);
+}
+
+.el:nth-child(3){
+    color: rgb(18, 18, 51);
+}
