@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="script.js" defer></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css' integrity='sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw==' crossorigin='anonymous'/>
+</head>
+<body>
+    <header class="logo">
+        <img src="../lesson4/pokeapi.png" alt="">
+    </header>
+
+    <div class="sort-bar">
+        <form id="sort-form">
+            <h4>Sort by:</h4>
+            <div>
+            <label for="id">ID: </label>
+            <input type="radio" name="sort" id="id" checked value="id">
+
+
+            <label for="name">Name: </label>
+            <input type="radio" name="sort" id="name" value="name">
+
+
+            <label for="hp">HP: </label>
+            <input type="radio" name="sort" id="hp" value="hp">
+
+
+            <label for="attack">Attack: </label>
+            <input type="radio" name="sort" id="attack" value="attack">
+
+
+            <label for="defense">defense: </label>
+            <input type="radio" name="sort" id="defense" value="defense">
+        </div>
+        <h4>Order:</h4>
+        <div>
+            <label for="fs">From smaller to biggest:</label>
+            <input type="radio" name="order" id="fs" value="fs" checked> 
+
+
+            <label for="fb">From biggest to smaller: </label>
+            <input type="radio" name="order" id="fb" value="fb">
+        </div>
+        <h4>Filter by:</h4>
+        <div class="filters"> 
+            <label for="search">Name:  </label>
+            <input type="text" name="search" id="search">
+        </div>
+        <button>Apply filters</button>
+        </form>
+    </div>
+
+    <div class="list">
+    </div>
+</body>
+</html>
