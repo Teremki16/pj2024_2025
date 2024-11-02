@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("texture.jpg");
+}
+
+.form {
+    background-color: white;
+    margin: 15px auto;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 2px solid black;
+    width: fit-content;
+}
+
+#searchBtn {
+    background-color: white;
+    border: none;
+    font-size: 15px;
+}
+
+#search {
+    border: none;
+    border-bottom: 2px solid;
+    font-size: 15px;
+}
+
+.pokemon {
+    background-color: white;
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 2rem;
+}
+
+.pokemon .id {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+.pokemon h1 {
+    text-align: center;
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+}
+
+.pokemon img {
+    height: 6rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.pokemon ul {
+    margin: 2rem;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
