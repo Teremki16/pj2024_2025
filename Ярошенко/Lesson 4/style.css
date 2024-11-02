@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(texture.jpg);
+}
+
+
+.form{
+    background-color: white;
+    padding: 1.5rem 2.5rem;
+    width: fit-content;
+    margin: auto;
+    border-radius: 38px;
+    border: 3px solid black;
+    margin-top: 20px;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.701);
+    font-size: 25px;
+}
+
+button {
+    border: none;
+    background-color: white;
+    font-size: 25px;
+}
+
+.pokemon {
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.id {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+
+.pokemon img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.pokemon h1 {
+    text-align: center;
+    padding: 0 2rem;
+}
+
+
+.pokemon ul{
+    padding: 1rem 2rem;
+}
+
+
+.logo {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    width: fit-content;
+    margin: auto;
+    border-radius: 40px;
+    border: 3px solid black;
+    margin-top: 20px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 1rem auto;
+    gap: 8px
+}
+
+.list button {
+    border-radius: 222px;
+    border: 2px solid black;
+    padding: 0.2rem 2rem;
+    text-align: start;
+    background-color: white;
+}
+
+.list button:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.701);
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    background-color: white;
+    border: 2px solid;
+    padding: 0.3rem;
+    border-radius: 1rem;
+}
+
+nav buttom, .pokemon button {
+    border: 2px solid aquamarine;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    font-weight: 700;
+    color: aquamarine
+}
+
+.pokecon button {
+    border-radius: 2px;
+    display: block;
+    margin: 10px auto;
+}
+
+
+nav button:hover {
+    background-color: aquamarine;
+    color: white;
+    cursor: pointer
+}
+button:disabled {
+    border-color: gray;
+    color: gray;
+}
+
+
+
+.bar {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.el:ntn-child(1){
+    color: red
+}
+.el:ntn-child(2){
+    color: green
+}
+.el:ntn-child(3){
+    color: blue
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+.sort-bar {
+    background-color: white;
+    border: 2px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+
+#sort-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+
+
+.filters {
+    color: blue;
+}
+
+
+.filters input{
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+
+button {
+    background-color: white;
+    border: 2px solid blue;
+    color: blue;
+    width: fit-content;
+    padding: 2px 5px;
+    border-radius: 5px;
+    align-self: center;
+}

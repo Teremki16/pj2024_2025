@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="../Lesson 4/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css'
+        integrity='sha512-8BU3emz11z9iF75b10oPjjpamM4Mz23yQFQymbtwyPN3mNWHxpgeqyrYnkIUP6A8KyAj5k2p3MiYLtYqew7gIw=='
+        crossorigin='anonymous' />
+</head>
+
+<body>
+    <div class="logo">
+        <img src="../Lesson 4/pokeapi.png" alt="">
+    </div>
+
+    <div class="sort-bar">
+        <form id="sort-form">
+            <h4>Sort by:</h4>
+
+            <div>
+
+                <label for="id">ID: </label>
+                <input type="radio" name="sort" id="id" checked value="id">
+
+                <label for="name">NAME: </label>
+                <input type="radio" name="sort" id="name" value="name">
+
+                <label for="hp">HP: </label>
+                <input type="radio" name="sort" id="hp" value="hp">
+
+                <label for="attack">ATTACK: </label>
+                <input type="radio" name="sort" id="attack" value="attack">
+
+                <label for="defense">DEFENSE: </label>
+                <input type="radio" name="sort" id="defense" value="defense">
+            </div>
+
+            <h4>Order:</h4>
+            <div>
+                <label for="fs">From smaller to biggest: </label>
+                <input type="radio" name="sort" id="fs" value="fs">
+
+                <label for="fb" :>From biggest to smaller:: </label>
+                <input type="radio" name="sort" id="fb :" value="fb">
+            </div>
+            <h4>Filter by:</h4>
+            <div class="filters">
+                <label for="search">Name: </label>
+                <input type="text" name="search" id="search">
+            </div>
+            <button>Aplly filters</button>
+            
+            
+            
+        </form>
+    </div>
+    </div>
+
+
+    <div class="grid"></div>
+    <div class="pokemon">
+        <div class="id">ID #3</div>
+        <h1>Pikachu</h1>
+        <img src="" alt="">
+        <div class="bar">
+            <div class="el">
+                <i class="fa-solid fa-heart" style="color: #f61313;"></i>
+            </div>
+            <div class="el">
+                <i class="fa-solid fa-bolt" style=></i>
+            </div>
+            <div class="el">
+                <i class="fa-solid fa-shield"></i>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
