@@ -39,4 +39,6 @@ public class PlayerController : MonoBehaviour
     {
         MovingWithCharacterController();
     }
+
+    
 }
