@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    background-color: rgb(18, 76, 76);
+}
+
+.guests {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 15px;
+    justify-content: space-around;
+    gap: 1rem;
+    text-align: center;
+}
+
+img {
+    box-shadow: 0 0 5px white;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 10%;
+}
+
+h1 {
+    color: rgb(141, 143, 70);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+  
+
+
+

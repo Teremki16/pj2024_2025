@@ -16,6 +16,7 @@ $("button").click(()=>{
     return obj
     })
     console.log(query)
+    $(".activity").show()
     $.ajax(url, {
         data: query,
         dataType: "json",
