@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(59, 59, 113);
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+    padding: 0.5rem;
+    color: yellow;
+    font-family: cursive;
+}
+
+h2 {
+    padding-bottom: 1rem;
+}
+
+.guests {
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding: 0 2rem;
+    gap: 1rem;
+    text-align: center;
+}
+
+img {
+    width: 70%;
+    margin-top: 1rem;
+    border-radius: 10%;
+    box-shadow: 0 0 10px ;
+}
+
+p {
+    font-size: smaller;
+}

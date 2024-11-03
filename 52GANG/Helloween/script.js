@@ -1,0 +1,16 @@
+let h1 = +prompt('Зібрано з першого будинку')
+ console.log(`В першому ${h1}`)
+let h2 = +prompt('Зібрано з другого будинку') 
+console.log(`В другому ${h2}`)
+let h3 = +prompt('Зібрано з третього будинку') 
+console.log(`В трутьому ${h3}`)
+let summ = h1 + h2 + h3
+console.log(`Сума ${summ}`)
+if(h1 < h2 && h1 < h3)
+console.log("В першому будинку живе жлоб")
+if(h2 < h1 && h2 < h3)
+console.log("В другому будинку живе жлоб")
+if(h3 < h1 && h3 < h2)
+console.log("В третьому будинку живе жлоб")
+let pod = (summ / 100)*13 
+console.log((`"безпонятия безпонятия" ${pod}`))
