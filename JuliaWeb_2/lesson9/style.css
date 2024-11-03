@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+    background-color: rgb(44, 44, 44);
+    text-align: center;
+}
+header{
+    font-size: 3rem;
+    font-family: "Itim", cursive;
+    color: rgb(181, 225, 7);
+    padding: 2rem;
+    text-align: center;
+}
+.syte{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Quicksand", sans-serif;
+    color: white;
+    
+
+}
+.guest{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.syte h1{
+    text-align: center;
+    padding: 2rem;
+
+}
+.guest img{
+    max-width: 200px;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.269);
+}
