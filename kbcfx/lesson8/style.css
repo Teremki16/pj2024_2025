@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-ox;
+}
+
+body {
+    background: linear-gradient(to right, rgb(20, 1, 41), rgb(2, 2, 27));
+    font-size: 14pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    color: rgb(67, 67, 67);
+}
+
+button {
+    background-color: rgba(50, 27, 71, 0.296);
+    color: rgb(75, 73, 73);
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+.activity {
+    background-color: rgb(56, 56, 57), rgb(41, 41, 43);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-lign: center;
+    color: rgb(117, 117, 117);
+    font-family: monospace;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0.5rem;
+    justify-items: start;
+    background-color: rgba(255, 255, 255, 0.205);
+}
