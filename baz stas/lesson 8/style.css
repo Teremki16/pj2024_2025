@@ -30,8 +30,13 @@ button {
     text-align: center;
 }
 
-
-
+form {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0.5rem;
+    justify-items: start;
+    background-color: rgba( 0, 0, 0, 0.296);
+}
 
 
 
