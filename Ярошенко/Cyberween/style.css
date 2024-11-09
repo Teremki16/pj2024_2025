@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(43, 84, 62);
+}
+
+
+img {
+    margin: 1.5rem;
+    height: 200px;
+    border-radius: 20px;
+    border: 3.5px solid rgb(101, 169, 142);
+}
+
+
+.guests{
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(129, 220, 126);
+    border: 2px solid rgb(10, 15, 9);
+    background-color: rgb(16, 36, 18);
+    font-family: cursive;
+}
