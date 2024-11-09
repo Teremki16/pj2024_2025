@@ -14,6 +14,7 @@ public class Platform : MonoBehaviour
             if(rb != null)
             {
                 rb.velocity = Vector2.up * jumpForce;
+                collision.gameObject.GetComponent<Animator>().SetTrigger("Jump");
                 if (gameObject.tag == "break") Destroy(gameObject);
             }
         }
