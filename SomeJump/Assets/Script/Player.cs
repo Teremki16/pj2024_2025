@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     {
         dir = Input.GetAxis("Horizontal") * speed;
     }
+    public void Jump()
+    {
 
+    }
    
 }

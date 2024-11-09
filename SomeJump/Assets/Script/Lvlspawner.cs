@@ -23,15 +23,27 @@ public class Lvlspawner : MonoBehaviour
     {
         for (int i = 0; i < numofblocks; i++)
         {
-            if (Random.Range(0, 101) > 25)
+            if (Random.Range(0, 101) > 50)
+            {
+                SpawnPlatform(platform[Random.Range(4,platform.Length)] );
+            }
+            else if (Random.Range(0, 50) >25)
             {
                 SpawnPlatform(platform[0]);
             }
-            else 
+            else if (Random.Range(0, 25) > 12)
             {
                 SpawnPlatform(platform[1]);
             }
-            
+            else if (Random.Range(0, 12) > 6)
+            {
+                SpawnPlatform(platform[2]);
+            }
+            else 
+            {
+                SpawnPlatform(platform[3]);
+            }
+
         }
     }
 }

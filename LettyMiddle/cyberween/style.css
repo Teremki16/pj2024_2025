@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:rgb(29, 21, 69);
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 10px;
+    color: rgb(165, 119, 231);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px 3px rgb(160, 235, 235);
+    margin: 30px;
+}
+
+.guests {
+    display: flex;
+    color: rgb(96, 71, 159);
+    margin: 2rem;
+    text-align: center;
+}
+
+.mem p{
+    margin: 1rem 0;
+    color: white;
+}
