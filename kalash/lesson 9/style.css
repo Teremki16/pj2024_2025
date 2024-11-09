@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: border-box;
+}
+
+body{
+    background-color: darkslategrey;
+}
+
+.wrapper{
+    color: green;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+
+.guests{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.guest img{
+    border-radius: 15%;
+    width: 200px;
+    height: 250px;
+    box-shadow: 0 0 5px 2px lightblue;
+}
+
+.guest{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    color: white;
+}
+
+.guest h4{
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.guest h2{
+    color: black;
+}
+
