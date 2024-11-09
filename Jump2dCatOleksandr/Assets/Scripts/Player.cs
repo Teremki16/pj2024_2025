@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _directionMove = Input.GetAxis("Horizontal") * movementSpeed;
-        GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>()
+        GameObject.Find("Text (TMP)").GetComponent<TextMeshProUGUI>()
             .SetText(score + "");
         //_directionMove = Input.acceleration.x * movementSpeed;
     }

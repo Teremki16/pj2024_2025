@@ -24,7 +24,7 @@ public class LeverGenerator : MonoBehaviour
             int r = Random.Range(0, 101);
             if(r < 75)
             {
-                SpawnPlatform(platform[0]);
+                SpawnPlatform(platform[Random.Range(2, platform.Length)]);
             } else if (r < 90) 
             {
                 SpawnPlatform(platform[2]);
