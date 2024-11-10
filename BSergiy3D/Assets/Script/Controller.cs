@@ -9,6 +9,14 @@ public class Controller : MonoBehaviour
     private Rigidbody rb;
     private Animator animator;
     private Vector3 jumpDir;
+
+    [SerializeField] GameObject sword;
+    [SerializeField] GameObject hips;
+    [SerializeField] GameObject rightHand;
+
+    Vector3 LSP;
+    Quaternion LSR;
+    bool isEquip = false;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -39,7 +47,32 @@ public class Controller : MonoBehaviour
         {
             MoveInAir();
         }
-        
+        if(Input.GetKeyDown(KeyCode.Q) && !isEquip)
+        {
+            animator.Play("Sword_Equip");
+            isEquip = true;
+        }else if (Input.GetKeyDown(KeyCode.Q) && isEquip)
+       
+        {
+            animator.Play("Sword_Holster");
+            isEquip = false;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch(Random.Range(0, 3))
+            {
+                case 0:
+                    animator.Play("SA1");
+                    break;
+                case 1:
+                    animator.Play("SA2");
+                    break;
+                case 2:
+                    animator.Play("SA3");
+                    break;
+            }
+        }
+
     }
 
     private void Move(float dir, string parametrName, string altParametrName)
@@ -102,5 +135,20 @@ public class Controller : MonoBehaviour
             rb.velocity = jumpDir;
 
         }
+    }
+
+    public void EquipSword()
+    {
+        sword.transform
+            .SetParent(hips.transform);
+        LSP = sword.transform.localPosition;
+        LSR = sword.transform.localRotation;
+    }
+
+    public void UnEquipSword()
+    {
+        sword.transform.SetParent(hips.transform);
+        sword.transform.localPosition = LSP;
+        sword.transform.localRotation = LSR;
     }
 }
