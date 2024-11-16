@@ -7,10 +7,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject[] platform;
     [SerializeField] int numberOfBlocks = 10;
 
-
     [SerializeField] float minX, maxX, minY, maxY;
-    private Vector3 spawnPos = new Vector3();
-
+    private Vector3 spawnPos = new Vector3(); 
 
     private void SpawnPlatform(GameObject obj)
     {
@@ -21,11 +19,15 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < numberOfBlocks; i++)
+        for(int i = 0; i < numberOfBlocks; i++)
         {
-            if(Random.Range(0, 101) > 25)
+            int r = Random.Range(0, 101);
+            if(r < 75)
             {
-                SpawnPlatform(platform[0]);
+                SpawnPlatform(platform[Random.Range(2, platform.Length)]);
+            }else if(r < 90)
+            {
+                SpawnPlatform(platform[2]);
             }
             else
             {
@@ -33,7 +35,4 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-     
-
-
 }
