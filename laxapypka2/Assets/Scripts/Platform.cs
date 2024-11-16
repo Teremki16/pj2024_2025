@@ -6,6 +6,7 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] float jumpforce = 10f;
     [SerializeField] GameObject jewel;
+    [SerializeField] GameObject particles;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.relativeVelocity.y <= 0f)
@@ -14,7 +15,13 @@ public class Platform : MonoBehaviour
             if(rb != null)
             {
                 rb.velocity = Vector2.up * jumpforce;
-                collision.gameObject.GetComponent<Animator>().SetTrigger("jump");
+                GameObject.Instantiate(particles,
+                    new Vector3(transform.position.x,
+                    transform.position.y - 0.1f,
+                    transform.position.z),
+                    Quaternion.identity);
+
+                 collision.gameObject.GetComponent<Animator>().SetTrigger("jump");
                 if (gameObject.tag == "break") Destroy(gameObject);
             }
            

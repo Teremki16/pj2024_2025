@@ -25,7 +25,7 @@ public class Lvlspawner : MonoBehaviour
             {
                 SpawnPlatform(platform[Random.Range(2,platform.Length)]);
             }
-            else if (r < 90) ;
+            else if (r < 90);
             else
             {
                 SpawnPlatform(platform[1]);
