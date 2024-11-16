@@ -6,6 +6,8 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    
+    [SerializeField] TextMeshProUGUI scoreText;
     public float movementSpeed = 10f;
     public float _directionMove;
     private Rigidbody2D rb;
@@ -20,7 +22,8 @@ public class Player : MonoBehaviour
     {
         _directionMove = Input.GetAxis("Horizontal") * movementSpeed;
         GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>().SetText(score + "");
-       //_directionMove = Input.acceleration.x * movementSpeed;
+        //_directionMove = Input.acceleration.x * movementSpeed;
+        scoreText.text = score + "";
     }
 
     private void FixedUpdate()
