@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraMove : MonoBehaviour
 {
     private GameObject target;
     public float speed = 100f;
+
+    [SerializeField] GameObject gameoverpanel;
     void Start()
     {
         target = FindObjectOfType<Player>().gameObject;
+        Time.timeScale = 1;
     }
 
     
@@ -21,5 +25,21 @@ public class CameraMove : MonoBehaviour
                 gameObject.transform.position.z);
             gameObject.transform.position = Vector3.Lerp(transform.position,newPos, speed);
         }
+
+        if(target.transform.position.y<transform.position.y-6)
+        {
+            gameoverpanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -33,15 +33,15 @@ public class Lvlspawner : MonoBehaviour
             }
             else if (Random.Range(0, 25) > 12)
             {
-                SpawnPlatform(platform[1]);
+                SpawnPlatform(platform[2]);
             }
             else if (Random.Range(0, 12) > 6)
             {
-                SpawnPlatform(platform[2]);
+                SpawnPlatform(platform[3]);
             }
             else 
             {
-                SpawnPlatform(platform[3]);
+                SpawnPlatform(platform[1]);
             }
 
         }
