@@ -57,7 +57,7 @@ public class Controller : MonoBehaviour
             animator.Play("Sword_Holster");
             isEquip = false;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isEquip)
         {
             switch(Random.Range(0, 3))
             {
@@ -139,10 +139,10 @@ public class Controller : MonoBehaviour
 
     public void EquipSword()
     {
-        sword.transform
-            .SetParent(hips.transform);
         LSP = sword.transform.localPosition;
         LSR = sword.transform.localRotation;
+        sword.transform
+            .SetParent(rightHand.transform);
     }
 
     public void UnEquipSword()
