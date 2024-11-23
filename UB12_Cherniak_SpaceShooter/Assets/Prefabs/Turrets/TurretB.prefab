@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8521419109758439692}
   - component: {fileID: 5310778165842014840}
   - component: {fileID: 4611828286799450265}
+  - component: {fileID: 1104022252013583616}
   m_Layer: 0
   m_Name: TurretB
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5854810621110382869}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.76479363, y: -3.0559828, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.772, y: -3.0452, z: 0}
+  m_LocalScale: {x: 1.0676968, y: 1.1690977, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,3 +121,19 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: b55168afe197b3b4f9d3371c64d131b8, type: 2}
+--- !u!70 &1104022252013583616
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854810621110382869}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.003379644, y: -0.00231477}
+  m_Size: {x: 0.33687234, y: 0.17647938}
+  m_Direction: 1
