@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="instumentBar">
+        <div class="colorBar">
+            <input type="color" id="color">
+            <button id="fillBtn" onclick="fillln()">Fill</button>
+            <button id="clearBtn" onclick="clearAll()">clear</button>
+        </div>
+            <div class="rangeBar">
+                <input type="range" min="1" max="50" value="10" id="range">
+                <span id="rangeVal">10</span>
+            </div>
+    </div>
+
+    <canvas></canvas>
+</body>
+</html>
