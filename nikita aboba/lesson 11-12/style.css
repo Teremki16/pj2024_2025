@@ -1,0 +1,30 @@
+.instrumentsBar{
+    background-color: lightblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.colorBar, .rangeBar{
+    display: flex;
+    gap: 0.5rem;
+}
+
+button{
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 3px black;
+}
+
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
