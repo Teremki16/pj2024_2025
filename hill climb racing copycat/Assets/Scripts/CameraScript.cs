@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-        Vector3 targetPos = transform.position;
+        Vector3 targetPos = target.position;
         targetPos.z = transform.position.z;
         transform.position = Vector3.Lerp(transform.position,
             targetPos,

@@ -327,7 +327,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 0.95827967
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -351,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -9.68, y: 0.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f52b5cbae881b0488d2fd27247d4bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 388118762}
 --- !u!1 &632166554
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,11 +418,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1bb7f5037ad36724cbffa5d3b4f692ad, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -511,8 +512,8 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.086, y: -0.0837}
   m_Suspension:
-    m_DampingRatio: 1
-    m_Frequency: 2
+    m_DampingRatio: 0.9
+    m_Frequency: 100
     m_Angle: 90
   m_UseMotor: 1
   m_Motor:
@@ -565,11 +566,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1bb7f5037ad36724cbffa5d3b4f692ad, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -659,8 +660,8 @@ WheelJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.085, y: -0.0837}
   m_Suspension:
-    m_DampingRatio: 1
-    m_Frequency: 2
+    m_DampingRatio: 0.9
+    m_Frequency: 100
     m_Angle: 90
   m_UseMotor: 1
   m_Motor:
@@ -701,23 +702,23 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0.1}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.9999694, y: -0.00016380694}
-  - {x: -1.019703, y: 0.2232926}
-  - {x: -0.33355507, y: 0.44713676}
-  - {x: -0.030055344, y: 0.5478347}
-  - {x: 0.28774503, y: 0.5051601}
-  - {x: 1.1004437, y: 0.20523736}
-  - {x: 1.4559411, y: 0.14371856}
-  - {x: 1.8590623, y: 0.2828849}
-  - {x: 2.313921, y: 0.57557076}
-  - {x: 2.642503, y: 0.91600734}
-  - {x: 2.827128, y: 1.0185962}
-  - {x: 3.1631699, y: 1.0521295}
-  - {x: 4.2512207, y: 0.85014635}
-  - {x: 4.6350365, y: 0.85694486}
-  - {x: 5.098499, y: 1.0390087}
-  - {x: 5.332877, y: 1.1631002}
-  - {x: 5.354404, y: 1.1689246}
+  - {x: -1.9961562, y: -0.020475674}
+  - {x: -1.0142876, y: 0.20334806}
+  - {x: -0.32550403, y: 0.4281028}
+  - {x: -0.028685488, y: 0.52721345}
+  - {x: 0.28231904, y: 0.4852184}
+  - {x: 1.0942632, y: 0.1855165}
+  - {x: 1.4583997, y: 0.12319863}
+  - {x: 1.8680665, y: 0.26428294}
+  - {x: 2.3272543, y: 0.5597805}
+  - {x: 2.6559455, y: 0.9003098}
+  - {x: 2.833646, y: 0.9989843}
+  - {x: 3.1619897, y: 1.0314965}
+  - {x: 4.248907, y: 0.82960963}
+  - {x: 4.6393967, y: 0.83674335}
+  - {x: 5.108125, y: 1.020721}
+  - {x: 5.339836, y: 1.1436405}
+  - {x: 5.3560624, y: 1.1483245}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -806,8 +807,8 @@ MonoBehaviour:
   m_WorldSpaceUV: 0
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
-  m_ColliderOffset: 0
-  m_UpdateCollider: 0
+  m_ColliderOffset: -0.125
+  m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
