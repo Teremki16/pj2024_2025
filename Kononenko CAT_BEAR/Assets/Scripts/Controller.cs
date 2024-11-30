@@ -120,10 +120,11 @@ public class Controller : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         animator.applyRootMotion = true;
         isGrounded = true;
+        Debug.Log(isGrounded);
     }
 
     private void MoveInAir()
