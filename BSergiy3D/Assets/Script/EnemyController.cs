@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private float prevTimeAttack, pauseTimeAttack;
     [SerializeField] Transform[] patrolPos;
     private int currentTargetIndex = 0;
-    private bool isAttack = false;
+    public bool isAttack = false;
 
 
     void Start()
@@ -38,6 +38,9 @@ public class EnemyController : MonoBehaviour
     {
         if(other.gameObject.tag == "Weapon" && Time.time > prevHitTime + ignoreDamageWindow)
         {
+            if(other.gameObject.transform.root.gameObject
+            .GetComponent<Controller>().isAttack) 
+            { 
             hp--;
             prevHitTime = Time.time;
             if(hp > 1)
@@ -51,6 +54,7 @@ public class EnemyController : MonoBehaviour
             {
                 animator.SetTrigger("isDead");
             }
+           }
         }
     }
 
@@ -63,9 +67,9 @@ public class EnemyController : MonoBehaviour
             if(distanceToPlayer < 2.5f)
             {
                 Attack();
-            }else if (distanceToPlayer > 30f)
+            }else if (distanceToPlayer > 10f)
             {
-
+                PatrolBehaviour();
             }
             else
             {
@@ -88,6 +92,32 @@ public class EnemyController : MonoBehaviour
         {
             animator.Play("Attack");
             prevTimeAttack = Time.time;
+        }
+    }
+    private void PatrolBehaviour()
+    {
+        if(patrolPos.Length > 0)
+        {
+            animator.SetBool("isWalk", true);
+            agent.destination = patrolPos[currentTargetIndex].position;
+            CheckNewPatrolPos();
+        }
+    }
+
+    private void CheckNewPatrolPos()
+    {
+        Vector3 target = patrolPos[currentTargetIndex].position;
+        if(Vector3.Distance(transform.position, target)< 0.5f)
+        {
+            if(currentTargetIndex < patrolPos.Length)
+            {
+                currentTargetIndex++;
+            }
+            else
+            {
+                currentTargetIndex = 0;
+            }
+            
         }
     }
 }

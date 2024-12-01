@@ -14,6 +14,8 @@ public class Controller : MonoBehaviour
     [SerializeField] GameObject hips;
     [SerializeField] GameObject rightHand;
 
+    public bool isAttack = false;
+
     Vector3 LSP;
     Quaternion LSR;
     bool isEquip = false;
@@ -29,7 +31,7 @@ public class Controller : MonoBehaviour
         angleY = Input.GetAxis("Mouse X") * turnSpeed * Time.fixedDeltaTime;
         dirZ = Input.GetAxis("Vertical");
         transform.Rotate(new Vector3(0, angleY, 0f));
-        if (isGrounded) { 
+        if (isGrounded) {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
@@ -39,27 +41,27 @@ public class Controller : MonoBehaviour
                 animator.SetTrigger("isLanded");
             }
 
-        Move(dirZ, "isWalkForward", "isWalkBack");
-        Dodge();
-        Sprint();
+            Move(dirZ, "isWalkForward", "isWalkBack");
+            Dodge();
+            Sprint();
         }
         else
         {
             MoveInAir();
         }
-        if(Input.GetKeyDown(KeyCode.Q) && !isEquip)
+        if (Input.GetKeyDown(KeyCode.Q) && !isEquip)
         {
             animator.Play("Sword_Equip");
             isEquip = true;
-        }else if (Input.GetKeyDown(KeyCode.Q) && isEquip)
-       
+        } else if (Input.GetKeyDown(KeyCode.Q) && isEquip)
+
         {
             animator.Play("Sword_Holster");
             isEquip = false;
         }
         if (Input.GetMouseButtonDown(0) && isEquip)
         {
-            switch(Random.Range(0, 3))
+            switch (Random.Range(0, 3))
             {
                 case 0:
                     animator.Play("SA1");
@@ -71,8 +73,12 @@ public class Controller : MonoBehaviour
                     animator.Play("SA3");
                     break;
             }
+            isAttack = true;
         }
-
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("SA1") &&
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("SA2") &&
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("SA3"))
+            isAttack = false;
     }
 
     private void Move(float dir, string parametrName, string altParametrName)
@@ -150,5 +156,16 @@ public class Controller : MonoBehaviour
         sword.transform.SetParent(hips.transform);
         sword.transform.localPosition = LSP;
         sword.transform.localRotation = LSR;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EWeapon")
+        {
+            if (other.gameObject.transform.root.gameObject
+            .GetComponent<EnemyController>().isAttack)
+                animator.Play("Sword_Hit_L_2");
+
+        }
     }
 }
