@@ -46,3 +46,8 @@ canvas.addEventListener("mousemove", (e) => {
     c.moveTo(e.clientX, e.clientY)
 }
 })
+
+document.querySelector("#download").addEventListener("click", ()=>{
+    let url = canvas.toDataURL().replace("image/png", "image/octet-stream")
+    document.querySelector("#download").href = url
+})
