@@ -31,17 +31,23 @@ canvas.addEventListener("mouseup", () => isMouseDown = false)
 
 canvas.addEventListener("mousemove", (e) => {
     if (isMouseDown) {
-    c.fillStyle = color
-    c.strokeStyle = color
-    c.lineWidth = lw;
+        c.fillStyle = color
+        c.strokeStyle = color
+        c.lineWidth = lw;
 
-    c.lineTo(e.clientX, e.clientY)
-    c.stroke()
-    c.beginsPath()
-    c.arc(e.clientX, e.clientY, lw / 2, 0, 2 * Math.PI)
-    c.fill()
+        c.lineTo(e.clientX, e.clientY)
+        c.stroke()
+        c.beginsPath()
+        c.arc(e.clientX, e.clientY, lw / 2, 0, 2 * Math.PI)
+        c.fill()
 
-    c.beginPath()
-    c.moveTo(e.clientX, e.clientY)
-}
+        c.beginPath()
+        c.moveTo(e.clientX, e.clientY)
+    }
+})
+
+
+document.querySelector("download").addEventListener("click", () => {
+    let url = canvas.toDataURL().replace("image/png", "image/octet-stream")
+    document.querySelector("#download").href = url
 })
