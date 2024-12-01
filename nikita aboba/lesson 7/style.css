@@ -1,0 +1,16 @@
+body{
+    background:linear-gradient(to right, blue , red);
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+div {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 300px;
+    padding: 1rem;
+}
