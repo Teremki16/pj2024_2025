@@ -26,9 +26,9 @@ button {
 
 
 canvas {
-    position: fixed;
-    border: 1px solid;
-    top: 3rem;
-    height: 89vh;
-    width: 97vw;
+    position: absolute;
+    
+    top: 0;
+   left: 0;
+   z-index: -10;
 }
