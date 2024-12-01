@@ -6,7 +6,7 @@ let canvas = document.querySelector("canvas")
 let c = canvas.getContext("2d")
 
 canvas.width = window.innerWidth
-canvas. height = window.innerHeight
+canvas.height = window.innerHeight
 
 
 function fillIn() {
@@ -49,3 +49,7 @@ canvas.addEventListener("mousemove", (e) => {
         c.moveTo(e.clientX, e.clientY)
     }
 });
+ document.querySelector("#download"). addEventListener("click", ()=>{
+    let url = canvas.toDataURL().replace("image/png", "image/octet-stream")
+    document.querySelector("#download").href = url
+ })
