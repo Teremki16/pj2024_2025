@@ -15,6 +15,9 @@ public class Controller : MonoBehaviour
     [SerializeField] GameObject hips;
     [SerializeField] GameObject rightHand;
 
+
+    public bool isAttack = false;
+
     Vector3 LSP;
     Quaternion LSR;
 
@@ -72,7 +75,12 @@ public class Controller : MonoBehaviour
                     animator.Play("GG3");
                     break;
             }
+            isAttack = true;
         }
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("GG1") &&
+            !animator.GetCurrentAnimatorStateInfo(0).IsName("GG1") &&
+                !animator.GetCurrentAnimatorStateInfo(0).IsName("GG1"))
+            isAttack = false;
     }
 
     private void Move(float dir, string parametrName, string altParamtrName)
@@ -149,5 +157,15 @@ public class Controller : MonoBehaviour
         sword.transform.SetParent(hips.transform);
         sword.transform.localPosition = LSP;
         sword.transform.localRotation = LSR;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EWeapon")
+        {
+            if (other.gameObject.transform.root
+            .gameObject.GetComponent<VorogController>().isAttack)
+                animator.Play("Sword_Hit_L_2");
+        }
     }
 }
