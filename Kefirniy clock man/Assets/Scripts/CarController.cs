@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
@@ -17,10 +19,13 @@ public class CarController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private int fuel = 100;
+    [SerializeField] TextMeshProUGUI FuelText;
     void Start()
     {
         motor.maxMotorTorque = 1000;
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine("FuelReduce");
     }
 
     // Update is called once per frame
@@ -41,65 +46,108 @@ public class CarController : MonoBehaviour
             moveForward = false;
             moveBackward = false;
         }
-    }void FixedUpdate()
+        CheckGamaOver();
+    }
+    void FixedUpdate()
     {
-        if (isGrounded)
+        MoveOnGround();
+        if (!isGrounded)
         {
-            if (moveForward)
+            MoveInAir();
+        }
+
+    }
+    private void MoveOnGround()
+    {
+        if (moveForward)
+        {
+            if (frontWheel.attachedRigidbody.angularVelocity > -2000)
             {
-                if (frontWheel.attachedRigidbody.angularVelocity > -2000)
-                {
-                    speed += 40f;
-                    motor.motorSpeed = speed;
-                }
-                backWheel.motor = motor;
-                frontWheel.motor = motor;
-                backWheel.useMotor = true;
-                frontWheel.useMotor = true;
+                speed += 40f;
+                motor.motorSpeed = speed;
             }
-            else if (moveBackward)
+            backWheel.motor = motor;
+            frontWheel.motor = motor;
+            backWheel.useMotor = true;
+            frontWheel.useMotor = true;
+        }
+        else if (moveBackward)
+        {
+            if (frontWheel.attachedRigidbody.angularVelocity < 2000)
             {
-                if (frontWheel.attachedRigidbody.angularVelocity < 2000)
-                {
-                    speed -= 40f;
-                    motor.motorSpeed = speed;
-                }
-                backWheel.motor = motor;
-                frontWheel.motor = motor;
-                backWheel.useMotor = true;
-                frontWheel.useMotor = true;
+                speed -= 40f;
+                motor.motorSpeed = speed;
             }
-            else
-            {
-                speed = -frontWheel.attachedRigidbody.angularVelocity;
-                backWheel.useMotor = false;
-                frontWheel.useMotor = false;
-            }
-            if (frontWheel.GetComponent<Collider2D>().IsTouchingLayers() || backWheel.GetComponent<Collider2D>().IsTouchingLayers())
-            {
-                isGrounded = true;
-            }
-            {
-                isGrounded = false;
-            }
+            backWheel.motor = motor;
+            frontWheel.motor = motor;
+            backWheel.useMotor = true;
+            frontWheel.useMotor = true;
         }
         else
         {
+            speed = -frontWheel.attachedRigidbody.angularVelocity;
             backWheel.useMotor = false;
             frontWheel.useMotor = false;
-            if (moveForward)
+        }
+        if (frontWheel.GetComponent<Collider2D>().IsTouchingLayers() || backWheel.GetComponent<Collider2D>().IsTouchingLayers())
+        {
+            isGrounded = true;
+        }
+        {
+            isGrounded = false;
+        }
+    }
+    private void MoveInAir()
+    {
+        backWheel.useMotor = false;
+        frontWheel.useMotor = false;
+        if (moveForward)
+        {
+            if (rb.angularVelocity < 200)
             {
-                if(rb.angularVelocity < 200)
-                {
-                    rb.AddTorque(10f);
-                }
-            }if (moveBackward)
-            {
-                if(rb.angularVelocity >-200)
-                {
-                    rb.AddTorque(-10f);
-                }
+                rb.AddTorque(10f);
             }
         }
+        if (moveBackward)
+        {
+            if (rb.angularVelocity > -200)
+            {
+                rb.AddTorque(-10f);
+            }
+        }
+    }
+
+    private void CheckGamaOver()
+    {
+        Vector2 rayDir = transform.up;
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, rayDir, 0.7f);
+        Debug.DrawRay(transform.position, rayDir * 0.7f, Color.red);
+        if(hit.Length > 1)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "DeadZone")
+        {
+            GameOver();
+        }
+    }
+    IEnumerator FuelReducer()
+    {
+        while(fuel > 0)
+        {
+            fuel--;
+            FuelText.SetText(fuel.ToString());
+            yield return new WaitForSeconds(0.5f);
+
+        }
+        GameOver();
     }
 }
