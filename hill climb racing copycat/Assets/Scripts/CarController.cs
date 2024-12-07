@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CarController : MonoBehaviour
 {
@@ -17,10 +19,14 @@ public class CarController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private int fuel = 100
+    [SerializeField] TextMeshProUGUI FuelText;
+
     void Start()
     {
         motor.maxMotorTorque = 100;
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine("FuelReducer");
     }
     void Update()
     {
@@ -45,59 +51,107 @@ public class CarController : MonoBehaviour
         {
             isGrounded = true;
         }
+        else
+        {
+            isGrounded = false;
+        }
+        CheckGameOver();
     }
     void FixedUpdate()
     {
-        if (isGrounded)
+        MoveOnGround();
+        if (!isGrounded)
         {
-            if (moveForward)
+            MoveInAir();
+        }
+    }
+
+    void MoveOnGround()
+    {
+        if (moveForward)
+        {
+            if (frontWheel.attachedRigidbody.angularVelocity > -2000)
             {
-                if (frontWheel.attachedRigidbody.angularVelocity > -2000)
-                {
-                    speed += 40f;
-                    motor.motorSpeed = speed;
-                }
-                backWheel.motor = motor;
-                frontWheel.motor = motor;
-                backWheel.useMotor = true;
-                frontWheel.useMotor = true;
+                speed += 40f;
+                motor.motorSpeed = speed;
             }
-            else if (moveBackward)
+            backWheel.motor = motor;
+            frontWheel.motor = motor;
+            backWheel.useMotor = true;
+            frontWheel.useMotor = true;
+        }
+        else if (moveBackward)
+        {
+            if (frontWheel.attachedRigidbody.angularVelocity < 2000)
             {
-                if (frontWheel.attachedRigidbody.angularVelocity < 2000)
-                {
-                    speed -= 40f;
-                    motor.motorSpeed = speed;
-                }
-                backWheel.motor = motor;
-                frontWheel.motor = motor;
-                backWheel.useMotor = true;
-                frontWheel.useMotor = true;
+                speed -= 40f;
+                motor.motorSpeed = speed;
             }
-            else
-            {
-                speed = -frontWheel.attachedRigidbody.angularVelocity;
-                backWheel.useMotor = false;
-                frontWheel.useMotor = false;
-            }
+            backWheel.motor = motor;
+            frontWheel.motor = motor;
+            backWheel.useMotor = true;
+            frontWheel.useMotor = true;
         }
         else
         {
+            speed = -frontWheel.attachedRigidbody.angularVelocity;
             backWheel.useMotor = false;
             frontWheel.useMotor = false;
-            if (moveForward)
+        }
+    }
+
+    private void MoveInAir()
+    {
+        backWheel.useMotor = false;
+        frontWheel.useMotor = false;
+        if (moveForward)
+        {
+            if (rb.angularVelocity > -200)
             {
-                if (rb.angularVelocity > -200)
-                {
-                    rb.AddTorque(10f);
-                }
-            }if (moveBackward)
-            {
-                if (rb.angularVelocity < -200)
-                {
-                    rb.AddTorque(10f);
-                }
+                rb.AddTorque(10f);
             }
         }
+        if (moveBackward)
+        {
+            if (rb.angularVelocity < -200)
+            {
+                rb.AddTorque(10f);
+            }
+        }
+    }
+
+    private void CheckGameOver()
+    {
+        Vector2 rayDir = Vector2.up;
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, rayDir, 0.7f);
+        Debug.DrawRay(transform.position, rayDir * 0.7f);
+        if (hit.Length > 1)
+        {
+            GameOver();
+        }
+    }
+    
+    private void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "DeadZone")
+        {
+            GameOver()  
+        }
+    }
+
+    IEnumerable FuelReducer()
+    {
+        while (fuel > 0)
+        {
+            fuel--;
+            FuelText.SetText(fuel.ToString());
+            yield return new WaitForSeconds(0.5f);
+        }
+        GameOver();
     }
 }
