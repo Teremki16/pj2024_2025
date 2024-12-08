@@ -11,7 +11,7 @@ bird.src = "img/bird.png"
 let pipeBottom = new Image()
 pipeBottom.src = "img/pipeBottom.png"
 let pipeUp = new Image()
-ppeUp.src = "img/pipeUp.png"
+pipeUp.src = "img/pipeUp.png"
 let road = new Image()
 road.src = "img/road.png"
 
@@ -20,10 +20,95 @@ fly.src = "audio/fly.mp3"
 let score = new Audio()
 score.src = "audio/score.mp3"
 
-function draw(){
+let birdX = 20;
+let birdY = 20;
+
+let g = 0.5
+let velY = 0;
+
+
+let scoreCount = 0
+let bestScore = 0
+
+
+let pipes = [ ]
+ pipes[0] = {
+     x: canvas.width,
+     y: 0,
+ }
+
+
+function draw(){   
     c.drawImage(back, 0, 0 )
+    c.drawImage(bird, birdX, birdY )
+    c.drawImage(road, 0, canvas.height - road.height) //image
+
+    velY += g
+    birdY += velY
+
+
+    for(let i = 0; i < pipes.length; i++){
+        pipes[i].x-= 2
+        c.drawImage(pipeUp, pipes[i].x, pipes[i].y)
+        c.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUp.height + 100)
+    
+
+    if(pipes[i].x == 80){
+        pipes.push({
+            x: canvas.width,
+            y: (Math.random() * pipeUp.height) - pipeUp.height
+        })
+    }
+
+
+    if(pipes[i].x < -pipeUp.width){
+        pipes.shift()
+        score.play()
+        scoreCount++
+        document.querySelector(".score").innerHTML = "Score: " + scoreCount 
+    }
+
+    if(birdX + bird.width >= pipes[i].x &&
+        birdX <= pipes[i].x + pipeUp.width &&
+        (
+            birdY <= pipes[i].y + pipeUp.height ||
+            birdY + bird.height >= pipes[i].y + pipeUp.height + 100
+        )
+    ){
+        location.reload()
+    }
+
+}
+
+    if(birdY >= canvas.height - road.height){
+        location.reload()
+    }
 }
 setInterval(draw, 20)
+
+
+function moveUp(){
+    if (birdX > 5){
+        velY = -5;
+        fly.play();
+    }
+    
+}
+
+canvas.addEventListener("click", moveUp)
+
+
+function reload(){
+    if(scoreCount > bestScoreCount)bestScoreCount = scoreCount
+    document.queryAelector(".bestScore").innerHTML = "Best Score: " + bestScoreCount
+    birdX = 10
+    birdY = 100
+    velY = 0
+    pipes = [ ]
+    pipes[0] = {
+        x: canvas.width,
+        y: 0,}
+    }
 
 
 
