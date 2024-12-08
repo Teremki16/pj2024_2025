@@ -19,6 +19,10 @@ public class Controller : MonoBehaviour
     Vector3 LSP;
     Quaternion LSR;
     bool isEquip = false;
+
+    [SerializeField] Joystick LeftJoystick, RightJoystick;
+        
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,18 +32,20 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        angleY = Input.GetAxis("Mouse X") * turnSpeed * Time.fixedDeltaTime;
-        dirZ = Input.GetAxis("Vertical");
+        //angleY = Input.GetAxis("Mouse X") * turnSpeed * Time.fixedDeltaTime;
+        //dirZ = Input.GetAxis("Vertical");
+        angleY = LeftJoystick.Horizontal * turnSpeed * Time.fixedDeltaTime;
+        dirZ = RightJoystick.Vertical;
         transform.Rotate(new Vector3(0, angleY, 0f));
         if (isGrounded) {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
-            else
-            {
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    Jump();
+            //}
+            //else
+            //{
                 animator.SetTrigger("isLanded");
-            }
+            //}
 
             Move(dirZ, "isWalkForward", "isWalkBack");
             Dodge();
@@ -49,32 +55,7 @@ public class Controller : MonoBehaviour
         {
             MoveInAir();
         }
-        if (Input.GetKeyDown(KeyCode.Q) && !isEquip)
-        {
-            animator.Play("Sword_Equip");
-            isEquip = true;
-        } else if (Input.GetKeyDown(KeyCode.Q) && isEquip)
-
-        {
-            animator.Play("Sword_Holster");
-            isEquip = false;
-        }
-        if (Input.GetMouseButtonDown(0) && isEquip)
-        {
-            switch (Random.Range(0, 3))
-            {
-                case 0:
-                    animator.Play("SA1");
-                    break;
-                case 1:
-                    animator.Play("SA2");
-                    break;
-                case 2:
-                    animator.Play("SA3");
-                    break;
-            }
-            isAttack = true;
-        }
+        
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("SA1") &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("SA2") &&
             !animator.GetCurrentAnimatorStateInfo(0).IsName("SA3"))
@@ -83,11 +64,11 @@ public class Controller : MonoBehaviour
 
     private void Move(float dir, string parametrName, string altParametrName)
     {
-        if(dir > 0f)
+        if(dir > 0.3f)
         {
             animator.SetBool(parametrName, true);
 
-        }else if (dir < 0f)
+        }else if (dir < -0.3f)
         {
             animator.SetBool(altParametrName, true);
         }
@@ -100,11 +81,11 @@ public class Controller : MonoBehaviour
 
     private void Dodge()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.D) || RightJoystick.Horizontal > 0.3f)
         {
             animator.Play("Sword_Dodge_Right");
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || RightJoystick.Horizontal < -0.3f)
         {
             animator.Play("Sword_Dodgle_Left");
         }
@@ -113,17 +94,20 @@ public class Controller : MonoBehaviour
     private void Sprint()
     {
 
-        animator.SetBool("isRun", Input.GetKey(KeyCode.LeftShift));
+        animator.SetBool("isRun", Input.GetKey(KeyCode.LeftShift) ||
+            RightJoystick.Vertical > 0.85f || RightJoystick.Vertical < -0.85f) ;
     }
 
-    private void Jump()
+    public void Jump()
     {
+        if (isGrounded) { 
         animator.Play("Sword_Jump_Platformer_Start");
         animator.applyRootMotion = false;
         jumpDir = new Vector3(0f, jumpForce, (dirZ * jumpForce) / 2f);
         jumpDir = transform.TransformDirection(jumpDir);
         rb.AddForce(jumpDir, ForceMode.Impulse);
         isGrounded = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -166,6 +150,30 @@ public class Controller : MonoBehaviour
             .GetComponent<EnemyController>().isAttack)
                 animator.Play("Sword_Hit_L_2");
 
+        }
+    }
+    public void Attack()
+    {
+        if (!isEquip)
+        {
+            animator.Play("Sword_Equip");
+            isEquip = true;
+        }
+        else
+        {
+            switch (Random.Range(0, 3))
+            {
+                case 0:
+                    animator.Play("SA1");
+                    break;
+                case 1:
+                    animator.Play("SA2");
+                    break;
+                case 2:
+                    animator.Play("SA3");
+                    break;
+            }
+            isAttack = true;
         }
     }
 }
