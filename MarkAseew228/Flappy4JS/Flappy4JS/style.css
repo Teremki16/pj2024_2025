@@ -8,4 +8,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: radial-gradient(white 5%,  blue 95%);
+}
+
+.textBar{
+    display: flex;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    gap: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+
+button{
+    margin-top: 1rem;
+    font-size: 2rem;
 }
