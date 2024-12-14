@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour
         motor.maxMotorTorque = 1000;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine("FuelReducer");
+        StartCoroutine("ChangeColor");
     }
 
 
@@ -141,6 +142,11 @@ public class CarController : MonoBehaviour
       {
             GameOver();
       }
+        if (collision.gameObject.tag == "Gas") 
+     {
+            fuel = 100;
+                GameObject.Destroy(collision.gameObject);
+      }
     }
     IEnumerator FuelReducer()
     {
@@ -151,5 +157,17 @@ public class CarController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         GameOver();
+    }
+    IEnumerator ChangeColor()
+    {
+        while (true)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(
+                Random.Range(0,1f),
+                Random.Range(0,1f),
+                Random.Range(0,1f)
+                );
+            yield return new WaitForSeconds(2f);
+        }
     }
 }
