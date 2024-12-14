@@ -23,20 +23,21 @@ public class CarController : MonoBehaviour
     [SerializeField] TextMeshProUGUI FuelText;
     void Start()
     {
-        motor.maxMotorTorque = 1000;
+        motor.maxMotorTorque = 10000;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine("FuelReduce");
+        StartCoroutine("ChangeColor");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             moveForward = true;
             moveBackward = false;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             moveForward = false;
             moveBackward = true;
@@ -45,6 +46,13 @@ public class CarController : MonoBehaviour
         {
             moveForward = false;
             moveBackward = false;
+        }
+        if (frontWheel.GetComponent<Collider2D>().IsTouchingLayers() || backWheel.GetComponent<Collider2D>().IsTouchingLayers())
+        {
+            isGrounded = true;
+        }
+        {
+            isGrounded = false;
         }
         CheckGamaOver();
     }
@@ -63,7 +71,7 @@ public class CarController : MonoBehaviour
         {
             if (frontWheel.attachedRigidbody.angularVelocity > -2000)
             {
-                speed += 40f;
+                speed += 150f;
                 motor.motorSpeed = speed;
             }
             backWheel.motor = motor;
@@ -75,7 +83,7 @@ public class CarController : MonoBehaviour
         {
             if (frontWheel.attachedRigidbody.angularVelocity < 2000)
             {
-                speed -= 40f;
+                speed -= 80f;
                 motor.motorSpeed = speed;
             }
             backWheel.motor = motor;
@@ -89,13 +97,7 @@ public class CarController : MonoBehaviour
             backWheel.useMotor = false;
             frontWheel.useMotor = false;
         }
-        if (frontWheel.GetComponent<Collider2D>().IsTouchingLayers() || backWheel.GetComponent<Collider2D>().IsTouchingLayers())
-        {
-            isGrounded = true;
-        }
-        {
-            isGrounded = false;
-        }
+        
     }
     private void MoveInAir()
     {
@@ -103,16 +105,16 @@ public class CarController : MonoBehaviour
         frontWheel.useMotor = false;
         if (moveForward)
         {
-            if (rb.angularVelocity < 200)
+            if (rb.angularVelocity < 400)
             {
-                rb.AddTorque(10f);
+                rb.AddTorque(20f);
             }
         }
         if (moveBackward)
         {
-            if (rb.angularVelocity > -200)
+            if (rb.angularVelocity > -400)
             {
-                rb.AddTorque(-10f);
+                rb.AddTorque(-20f);
             }
         }
     }
@@ -122,7 +124,7 @@ public class CarController : MonoBehaviour
         Vector2 rayDir = transform.up;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, rayDir, 0.7f);
         Debug.DrawRay(transform.position, rayDir * 0.7f, Color.red);
-        if(hit.Length > 1)
+        if (hit.Length > 1)
         {
             GameOver();
         }
@@ -134,14 +136,19 @@ public class CarController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "DeadZone")
+        if (collision.gameObject.tag == "DeadZone")
         {
             GameOver();
         }
+        if (collision.gameObject.tag == "Gas")
+        {
+            fuel = 100;
+            GameObject.Destroy(collision.gameObject);
+        }
     }
-    IEnumerator FuelReducer()
+    IEnumerator FuelReduce()
     {
-        while(fuel > 0)
+        while (fuel > 0)
         {
             fuel--;
             FuelText.SetText(fuel.ToString());
@@ -150,4 +157,17 @@ public class CarController : MonoBehaviour
         }
         GameOver();
     }
+    IEnumerator ChangeColor()
+    {
+        while (true)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(
+                Random.Range(0f,1f),
+                Random.Range(0f,1f),
+                Random.Range(0f,1f)
+                );
+            yield return new WaitForSeconds(2f);
+        }
+    }
+    
 }
