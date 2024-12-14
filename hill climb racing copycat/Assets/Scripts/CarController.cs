@@ -19,7 +19,7 @@ public class CarController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private int fuel = 100
+    private int fuel = 100;
     [SerializeField] TextMeshProUGUI FuelText;
 
     void Start()
@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour
         motor.maxMotorTorque = 100;
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine("FuelReducer");
+        StartCoroutine("ChangeColor");
     }
     void Update()
     {
@@ -140,7 +141,12 @@ public class CarController : MonoBehaviour
     {
         if(collision.gameObject.tag == "DeadZone")
         {
-            GameOver()  
+            GameOver();
+        }
+        if(collision.gameObject.tag == "Gustavo")
+        {
+            fuel = 100;
+            GameObject.Destroy(collision.gameObject);
         }
     }
 
@@ -153,5 +159,17 @@ public class CarController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         GameOver();
+    }
+    
+    IEnumerator  ChangeColor()
+    {
+        while (true)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(
+                Random.Range(0, 1f),
+                Random.Range(0, 1f),
+                Random.Range(0, 1f));
+            yield return new WaitForSeconds(0.0025f);
+        }
     }
 }
