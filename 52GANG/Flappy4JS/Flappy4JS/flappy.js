@@ -16,16 +16,14 @@ road.src = "img/road.jpg"
 let shahed = new Image()
 shahed.src = "img/shahed.png"
 
-let fly = new Audio()
-fly.src = "audio/fly.mp3"
 let vzryiv = new Audio()
 vzryiv.src = "audio/vzryiv.mp3"
 let krik = new Audio()
 krik.src = "audio/krik.mp3"
 let islamic = new Audio()
 islamic.src = "audio/islamic.mp3"
-let Opa = new Audio()
-Opa.src = "audio/Opa.mp3"
+let Pau = new Audio()
+Pau.src = "audio/Pau.mp3"
 
 let shahedX = 20
 let shahedY = 20
@@ -42,52 +40,58 @@ pipes[0] = {
     y: 0,
 }
 
-// islamic.play()
-Opa.play()
+islamic.play()
+Pau.play()
+
+let isPause = false;
 
 function draw() {
-    c.drawImage(voyna, 0, 0)
-    c.drawImage(shahed, shahedX, shahedY)
-    c.drawImage(road, 0, canvas.height - road.height)
+    if (!isPause) {
+        c.drawImage(voyna, 0, 0)
+        c.drawImage(shahed, shahedX, shahedY)
+        c.drawImage(road, 0, canvas.height - road.height)
 
-    velY += g
-    shahedY += velY
+        velY += g
+        shahedY += velY
 
-    for (let i = 0; i < pipes.length; i++) {
-        pipes[i].x -= 2
-        c.drawImage(captionUp, pipes[i].x, pipes[i].y)
-        c.drawImage(captionBottom, pipes[i].x, pipes[i].y + captionUp.height + 150)
+        for (let i = 0; i < pipes.length; i++) {
+            pipes[i].x -= 2
+            c.drawImage(captionUp, pipes[i].x, pipes[i].y)
+            c.drawImage(captionBottom, pipes[i].x, pipes[i].y + captionUp.height + 150)
 
-        if (pipes[i].x == 80) {
-            pipes.push({
-                x: canvas.width,
-                y: (Math.random() * captionUp.height) - captionUp.
-                    height
-            })
+            if (pipes[i].x == 80) {
+                pipes.push({
+                    x: canvas.width,
+                    y: (Math.random() * captionUp.height) - captionUp.
+                        height
+                })
+            }
+            if (pipes[i].x < -captionUp.width) {
+                pipes.shift()
+                vzryiv.play()
+                krik.play();
+                islamic.play()
+                Pau.play()
+
+                scoreCount++
+                document.querySelector(".score").innerHTML = "Score: " + scoreCount
+            }
+
+            if (shahedX + shahed.width >= pipes[i].x &&
+                shahedX <= pipes[i].x + captionUp.width &&
+                (
+                    shahedY <= pipes[i].y + captionUp.height ||
+                    shahedY + shahed.height >= pipse[i].y + captionUp.height + 150
+                )
+            ) {
+                reload();
+            }
         }
-        if (pipes[i].x < -captionUp.width) {
-            pipes.shift()
-            // vzryiv.play()
-            // krik.play();
-            scoreCount++
-            document.querySelector(".score").innerHTML = "Score: " + scoreCount
+        if (shahedY >= canvas.height - road.height) {
+            reload()
         }
-
-        if (shahedX + shahed.width >= pipes[i].x &&
-            shahedX <= pipes[i].x + captionUp.width &&
-            (
-                shahedY <= pipes[i].y + captionUp.height ||
-                shahedY + shahed.height >= pipse[i].y + captionUp.height + 150
-            )
-        ) {
-            reload();
-        }
-    }
-    if (shahedY >= canvas.height - road.height) {
-        reload()
     }
 }
-
 setInterval(draw, 20)
 
 function moveUp() {
@@ -96,6 +100,7 @@ function moveUp() {
     }
 }
 
+
 canvas.addEventListener("click", moveUp)
 
 window.addEventListener("keydown", (e) => {
@@ -103,9 +108,9 @@ window.addEventListener("keydown", (e) => {
 })
 
 function reload() {
-    if(scoreCount > bestScoreCount) bestScoreCount = scoreCount
+    if (scoreCount > bestScoreCount) bestScoreCount = scoreCount
     document.querySelector(".bestScore").innerHTML = "Best score: " + bestScoreCount
-    scoreCount = 8
+    scoreCount = 0
     shahedX = 10
     shahedY = 100
     velY = 0
@@ -114,4 +119,7 @@ function reload() {
         x: canvas.width,
         y: 0
     }
-}
+} document.querySelector("button").addEventListener("click", () => {
+    isPause = !isPause
+    document.querySelector("box").style.display = isPause ? "block" : "none"
+})
