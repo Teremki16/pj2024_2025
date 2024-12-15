@@ -24,3 +24,17 @@ button {
     margin-top:  1rem;
     font-size: 2rem;
 }
+
+
+.wrapper {
+    position: relative;
+}
+
+.box{
+    width: 256px;
+    height: 512px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    display: none;
+}

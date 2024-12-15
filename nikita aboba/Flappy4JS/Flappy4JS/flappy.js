@@ -22,8 +22,8 @@ let fly = new Audio()
 fly.src = "audio/fly.mp3"
 let score = new Audio()
 score.src = "audio/score.mp3"
-let scor = new Audio()
-scor.scr = "audio/scor.mp3"
+let score1 = new Audio()
+score1.src = "audio/score1.mp3"
 
 let birdX = 20
 let birdY = 20
@@ -39,54 +39,59 @@ pipes[0] = {
     x: canvas.width,
     y: 0,
 }
+
+let isPause = false
+
 function draw() {
-    c.drawImage(back, 0, 0)
-    c.drawImage(bird, birdX, birdY)
-    c.drawImage(road, 0, canvas.height - road.height)
+    if (!isPause) {
+        c.drawImage(back, 0, 0)
+        c.drawImage(bird, birdX, birdY)
+        c.drawImage(road, 0, canvas.height - road.height)
 
-    velY += g
-    birdY += velY
+        velY += g
+        birdY += velY
 
-    for (let i = 0; i < pipes.length; i++) {
-        pipes[i].x -= 2
-        c.drawImage(pipeUp, pipes[i].x, pipes[i].y)
-        c.drawImage(pipeBotton, pipes[i].x, pipes[i].y + pipeUp.height + 130)
+        for (let i = 0; i < pipes.length; i++) {
+            pipes[i].x -= 2
+            c.drawImage(pipeUp, pipes[i].x, pipes[i].y)
+            c.drawImage(pipeBotton, pipes[i].x, pipes[i].y + pipeUp.height + 130)
 
-        if (pipes[i].x == 80) {
-            pipes.push({
-                x: canvas.width,
-                y: (Math.random() * pipeUp.height) - pipeUp.height
-            })
+            if (pipes[i].x == 80) {
+                pipes.push({
+                    x: canvas.width,
+                    y: (Math.random() * pipeUp.height) - pipeUp.height
+                })
+            }
+            if (pipes[i].x < -pipeUp.width) {
+                pipes.shift()
+                score1.play()
+                scorecount++
+                document.querySelector(".score").innerHTML = "Score: " + scorecount
+
+
+            }
+
+            if (birdX + bird.width >= pipes[i].x &&
+                birdX <= pipes[i].x + pipeUp.width &&
+                (
+                    birdY <= pipes[i].y + pipeUp.height ||
+                    birdY + bird.height >= pipes[i].y + pipeUp.height + 130
+                )
+            ) {
+                reload()
+                score.play()
+            }
+
         }
-        if (pipes[i].x < -pipeUp.width) {
-            pipes.shift()
+
+
+        if (birdY >= canvas.height - road.height) {
+            reload()
             score.play()
-            scorecount++ 
-            document.querySelector(".score").innerHTML = "Score: "+scorecount
-
 
         }
-        
-        if(birdX + bird.width >= pipes[i].x &&
-            birdX <= pipes[i].x + pipeUp.width &&
-            (
-                birdY <= pipes[i].y + pipeUp.height ||
-                birdY + bird.height >= pipes[i].y +  pipeUp.height + 130
-            )
-        ){
-        reload()
-        scor.play()
-        }
-    }
-
-
-    if (birdY >= canvas.height - road.height) {
-        reload()
-        score.play()
-        
     }
 }
-
 setInterval(draw, 20)
 
 function moveUp() {
@@ -96,14 +101,15 @@ function moveUp() {
     }
 }
 
+
 canvas.addEventListener("click", moveUp)
 
 window.addEventListener("keydown", (e) => {
     if (e.key == "e") moveUp()
 })
 
-function reload(){
-    if(scorecount > bestscorecount) bestscorecount = scorecount
+function reload() {
+    if (scorecount > bestscorecount) bestscorecount = scorecount
     document.querySelector(".bestScore").innerHTML = "Best score: " + bestscorecount
     scorecount = 0
     birdX = 10
@@ -115,3 +121,9 @@ function reload(){
         y: 0
     }
 }
+
+document.querySelector("button").addEventListener("click", ()=>{
+    isPause = !isPause
+    document.querySelector(".box").style.display = isPause ? "block" : "none"
+})
+
