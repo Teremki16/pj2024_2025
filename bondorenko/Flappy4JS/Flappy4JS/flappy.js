@@ -35,7 +35,10 @@ pipes[0] = {
     y: 0
 }
 
+let isPause = false;
+
 function draw() {
+    if(!isPause) {
     c.drawImage(back, 0, 0);
     c.drawImage(bird, birdX, birdY);
     c.drawImage(road, 0, canvas.height - road.height)
@@ -76,6 +79,7 @@ function draw() {
         location.reload();
     }
 }
+}
 
 setInterval(draw, 20);
 
@@ -107,3 +111,10 @@ function reload(){
         y: 0 
     }
 }
+
+
+document.querySelector("button").addEventListener("click", ()=>{
+    isPause = !isPause
+    document.querySelector(".box").style.display = isPause ? "block" : "none"
+})
+
