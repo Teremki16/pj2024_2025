@@ -36,48 +36,51 @@ pipes[0] = {
     y: 0
 }
 
+let isPause = false
+
 function draw() {
-    c.drawImage(back, 0, 0)
-    c.drawImage(bird, birdX, birdY)
-    c.drawImage(road, 0, canvas.height - road.height)
+    if (!isPause) {
+        c.drawImage(back, 0, 0)
+        c.drawImage(bird, birdX, birdY)
+        c.drawImage(road, 0, canvas.height - road.height)
 
-    velY += g
-    birdY += velY
+        velY += g
+        birdY += velY
 
-    for (let i = 0; i < pipes.length; i++) {
-        pipes[i].x -= 2
-        c.drawImage(pipeUP, pipes[i].x, pipes[i].y)
-        c.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUP.height + 130)
+        for (let i = 0; i < pipes.length; i++) {
+            pipes[i].x -= 2
+            c.drawImage(pipeUP, pipes[i].x, pipes[i].y)
+            c.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUP.height + 130)
 
-        if (pipes[i].x == 80) {
-            pipes.push({
-                x: canvas.width,
-                y: (Math.random() * pipeUP.height) - pipeUP.height
-            })
+            if (pipes[i].x == 80) {
+                pipes.push({
+                    x: canvas.width,
+                    y: (Math.random() * pipeUP.height) - pipeUP.height
+                })
+            }
+
+            if (pipes[i].x < -pipeUP.width) {
+                pipes.shift()
+                score.play()
+                scoreCount++
+                document.querySelector(".score").innerHTML = "Score:" + scoreCount
+            }
+
+            if (birdX + bird.width >= pipes[i].x &&
+                birdX <= pipes[i].x + pipeUP.width &&
+                (
+                    birdY <= pipes[i].y + pipeUP.height ||
+                    birdY + bird.height >= pipes[i].y + pipeUP.height + 130
+                )
+            ) {
+                reload()
+            }
         }
 
-        if (pipes[i].x < -pipeUP.width) {
-            pipes.shift()
-            score.play()
-            scoreCount++
-            document.querySelector(".score").innerHTML = "Score:"+scoreCount
-        }
-
-        if (birdX + bird.width >= pipes[i].x &&
-            birdX <= pipes[i].x + pipeUP.width &&
-            (
-                birdY <= pipes[i].y + pipeUP.height ||
-                birdY + bird.height >= pipes[i].y + pipeUP.height + 130
-            )
-        ) {
+        if (birdY >= canvas.height - road.height) {
             reload()
         }
     }
-
-    if (birdY >= canvas.height - road.height) {
-       reload()
-    }
-
 }
 
 setInterval(draw, 20)
@@ -95,8 +98,8 @@ window.addEventListener("keydown", (e) => {
     if (e.key == "ArrowUp") moveUp()
 })
 
-function reload(){
-    if(scoreCount > bestScoreCount) bestScoreCount = scoreCount
+function reload() {
+    if (scoreCount > bestScoreCount) bestScoreCount = scoreCount
     document.querySelector(".bestScore").innerHTML = "Best score:" + bestScoreCount
     scoreCount = 0
     birdX = 10
@@ -105,6 +108,11 @@ function reload(){
     pipes = []
     pipes[0] = {
         x: canvas.width,
-        y: 0 
+        y: 0
     }
 }
+
+document.querySelector("button").addEventListener("click", ()=>{
+    isPause = !isPause
+    document.querySelector(".box").style.display = isPause ? "block" : "none"
+})
