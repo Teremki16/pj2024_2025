@@ -35,7 +35,10 @@ pipes[0] = {
     y: 0
 }
 
+let isPause = false
+
 function draw(){
+    if(!isPause){
     c.drawImage(back, 0, 0)
     c.drawImage(bird, birdX, birdY)
     c.drawImage(road, 0, canvas.height - road.height)
@@ -60,14 +63,14 @@ function draw(){
         pipes.shift()
         score.play()
         scoreCount++
-        document.querySelector(".score".innerHTML = "Score:" +scoreCount)
+        document.querySelector(".score").innerHTML = "Score:" + scoreCount
     }
 
     if(birdX + bird.width >= pipes[i].x &&
-        birdX <= pipes[i].x + pipesUp.width &&
+        birdX <= pipes[i].x + pipeUp.width &&
         (
             birdY <= pipes[i].y + pipeUp.height ||
-            birdY + Shahed.height >= pipes[i].y + pipeBottom.Up.height + 130
+            birdY + bird.height >= pipes[i].y + pipeUp.height + 130
         )
     ){
         reload()
@@ -77,7 +80,7 @@ function draw(){
     if(birdY >= canvas.height - road.height){
         reload()
     }
-
+    }
 }
 
 setInterval(draw, 20)
@@ -98,6 +101,7 @@ window.addEventListener("keydown", (e)=>{
 function reload(){
     if(scoreCount > bestScoreCount) bestScoreCount = scoreCount
     document.querySelector(".bestScore").innerHTML = "Best score: " + bestScoreCount
+    scoreCount = 0
     birdX = 10
     birdY = 100
     velY = 0
@@ -107,3 +111,8 @@ function reload(){
         y: 0
     }
 }
+
+document.querySelector("button").addEventListener("click", ()=>{
+    isPause = !isPause
+    document.querySelector(".box").style.display = isPause ? "block" : "none"
+})
