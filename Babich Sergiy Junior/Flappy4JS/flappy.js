@@ -35,8 +35,11 @@ let pipes = []
         y: 0,
     }
 
+    let isPause = false;
+
 
 function draw(){
+    if(!isPause) {
     c.drawImage(back, 0, 0)
     c.drawImage(bird,birdX, birdY,)
     c.drawImage(road, 0, canvas.height - road.height)
@@ -46,7 +49,7 @@ function draw(){
     for(let i = 0; i < pipes.length; i++) {
         pipes[i].x-= 2
         c.drawImage(pipeUp, pipes[i].x, pipes[i].y)
-        c.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUp.height + 100)
+        c.drawImage(pipeBottom, pipes[i].x, pipes[i].y + pipeUp.height + 120)
 
         if(pipes[i].x == 80){
             pipes.push({
@@ -66,7 +69,7 @@ function draw(){
             birdX <= pipes[i].x + pipeUp.width &&
             (
                 birdY <= pipes [i].y + pipeUp.height ||
-                birdY + bird.height >= pipes[i].y + pipeUp.height + 100
+                birdY + bird.height >= pipes[i].y + pipeUp.height + 120
             )
         ){
             location.reload()
@@ -76,6 +79,7 @@ function draw(){
     if(birdY >= canvas.height - road.height){
         location.reload()
     }
+}
 }
 
 setInterval(draw, 20)
@@ -104,4 +108,7 @@ function reload(){
 }
 
 
-
+document.querySelector("button").addEventListener("click", ()=> {
+    isPause = !isPause
+    document.querySelector(".box").style.display = isPause ? "block" : "none"
+})
