@@ -1,0 +1,39 @@
+canvas {
+    border: 1px solid black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(white 5%, blue 95%);
+}
+
+.textBar {
+    display: flex;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    gap: 2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+}
+
+button {
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.box {
+    width: 256px;
+    height: 512px;
+    position: absolute;
+    background-color: rgba(242, 209, 19, 0.285);
+    top: 0;
+    display: none;
+}
