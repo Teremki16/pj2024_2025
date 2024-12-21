@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 2509882186032365299}
   - component: {fileID: 4850717390869796294}
   - component: {fileID: 5327732371508505141}
-  - component: {fileID: 8331217286100261043}
-  - component: {fileID: 9196634116851995001}
+  - component: {fileID: 710253081153307651}
+  - component: {fileID: 7957423869078265123}
   m_Layer: 0
-  m_Name: BulletE
-  m_TagString: Bullet
+  m_Name: EnemyBullet
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88873d98e76b713438b0e35c0d4d2219, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 21afd419d8a799641a1f756bbe98fbbc, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: dc0a772e0880db8439096a73085f1191, type: 2}
---- !u!70 &8331217286100261043
+--- !u!70 &710253081153307651
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,10 +156,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.060456e-19, y: 0.00045970822}
-  m_Size: {x: 0.12000003, y: 0.062301986}
+  m_Offset: {x: -8.1113827e-19, y: -0.0009194835}
+  m_Size: {x: 0.12000003, y: 0.06689929}
   m_Direction: 1
---- !u!50 &9196634116851995001
+--- !u!50 &7957423869078265123
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
