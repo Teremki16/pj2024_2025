@@ -628,6 +628,8 @@ MonoBehaviour:
   backWheel: {fileID: 1451988301}
   frontWheel: {fileID: 294055562}
   FuelText: {fileID: 1521263214}
+  fp: 0
+  bp: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1326,7 @@ GameObject:
   - component: {fileID: 1206959546}
   - component: {fileID: 1206959548}
   - component: {fileID: 1206959547}
+  - component: {fileID: 1206959549}
   m_Layer: 5
   m_Name: ForwardPedal
   m_TagString: Untagged
@@ -1389,6 +1392,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206959545}
   m_CullTransparentMesh: 1
+--- !u!114 &1206959549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206959545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcec5894d607c04ea4fefcc02eff797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: c406c23e8394e854a88dfd1e582d7826, type: 3}
+  pedalUp: {fileID: 21300000, guid: 9f2ce438f9548214a9a3604d4ae3cf80, type: 3}
+  car: {fileID: 331244806}
 --- !u!1 &1207615488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,8 +1876,9 @@ GameObject:
   - component: {fileID: 1833062231}
   - component: {fileID: 1833062233}
   - component: {fileID: 1833062232}
+  - component: {fileID: 1833062234}
   m_Layer: 5
-  m_Name: ForwardPedal (1)
+  m_Name: BackwardPedal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1923,3 +1942,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833062230}
   m_CullTransparentMesh: 1
+--- !u!114 &1833062234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833062230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c327c7526e5dacc42a0c2ae6ecbfeef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: c406c23e8394e854a88dfd1e582d7826, type: 3}
+  pedalUp: {fileID: 21300000, guid: 9f2ce438f9548214a9a3604d4ae3cf80, type: 3}
+  car: {fileID: 331244806}
