@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 105738970}
   - component: {fileID: 105738972}
   - component: {fileID: 105738971}
+  - component: {fileID: 105738973}
   m_Layer: 5
   m_Name: ForwardPedal
   m_TagString: Untagged
@@ -295,7 +296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -574, y: -243}
+  m_AnchoredPosition: {x: 540, y: -243}
   m_SizeDelta: {x: 207.956, y: 370.668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105738971
@@ -336,6 +337,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105738969}
   m_CullTransparentMesh: 1
+--- !u!114 &105738973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105738969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f0d56e446b1bb7439c237295bade40b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: 9d573a93e2fdb4143aeb09fe7c7a132d, type: 3}
+  PedalUp: {fileID: 21300000, guid: 08f2a90e5c9f86948bbd67b450a88eb6, type: 3}
+  car: {fileID: 1746875273}
 --- !u!1 &517022924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1017,7 @@ GameObject:
   - component: {fileID: 1539144724}
   - component: {fileID: 1539144726}
   - component: {fileID: 1539144725}
+  - component: {fileID: 1539144727}
   m_Layer: 5
   m_Name: BackwardPedal (1)
   m_TagString: Untagged
@@ -1025,7 +1042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 561.62805, y: -249.994}
+  m_AnchoredPosition: {x: -666, y: -249.994}
   m_SizeDelta: {x: 207.956, y: 370.668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539144725
@@ -1066,6 +1083,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539144723}
   m_CullTransparentMesh: 1
+--- !u!114 &1539144727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539144723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bdb34d54c5dd94c8d9bb633b27fa73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: 9d573a93e2fdb4143aeb09fe7c7a132d, type: 3}
+  PedalUp: {fileID: 21300000, guid: 08f2a90e5c9f86948bbd67b450a88eb6, type: 3}
+  car: {fileID: 1746875273}
 --- !u!1 &1641838091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1719,8 @@ MonoBehaviour:
   backWheel: {fileID: 806334313}
   frontWheel: {fileID: 1641838093}
   FuelText: {fileID: 70479387}
+  fp: 0
+  bp: 0
 --- !u!1 &1903728651
 GameObject:
   m_ObjectHideFlags: 0

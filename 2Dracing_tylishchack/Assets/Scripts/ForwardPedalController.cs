@@ -14,9 +14,11 @@ public class ForwardPedalController : MonoBehaviour, IPointerDownHandler, IPoint
    public void OnPointerDown(PointerEventData a)
     {
         GetComponent<Image>().sprite = pedalDown;
+        car.GetComponent<CarController>().fp = true;
     }
     public void OnPointerUp(PointerEventData a)
     {
         GetComponent<Image>().sprite = PedalUp;
+        car.GetComponent<CarController>().fp = false;
     }
 }

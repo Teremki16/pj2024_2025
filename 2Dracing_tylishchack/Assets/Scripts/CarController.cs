@@ -22,6 +22,9 @@ public class CarController : MonoBehaviour
     private int fuel = 100;
     [SerializeField] TextMeshProUGUI FuelText;
 
+    public bool fp = false;
+    public bool bp = false;
+
     void Start()
     {
         motor.maxMotorTorque = 1000;
@@ -33,12 +36,12 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || fp )
         {
             moveForward = true;
             moveBackward = false;
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow) || bp)
         {
             moveForward = false;
             moveBackward = true;
