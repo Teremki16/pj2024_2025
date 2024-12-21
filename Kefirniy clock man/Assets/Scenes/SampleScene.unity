@@ -291,6 +291,8 @@ MonoBehaviour:
   backWheel: {fileID: 1306214924}
   frontWheel: {fileID: 1234085252}
   FuelText: {fileID: 829731246}
+  fp: 0
+  bp: 0
 --- !u!1 &70102893
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +415,7 @@ GameObject:
   - component: {fileID: 97348818}
   - component: {fileID: 97348820}
   - component: {fileID: 97348819}
+  - component: {fileID: 97348821}
   m_Layer: 5
   m_Name: ForwardPedal
   m_TagString: Untagged
@@ -478,6 +481,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97348817}
   m_CullTransparentMesh: 1
+--- !u!114 &97348821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97348817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca557dd7107b8cb4fac7ca18a67b241e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: 38e7e5730c77c4844b9441136ca64e3e, type: 3}
+  pedalUP: {fileID: 21300000, guid: 19f2b7e739e7bd4448a0e5935ad5294e, type: 3}
+  car: {fileID: 53672204}
 --- !u!1 &417434532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1107,7 @@ GameObject:
   - component: {fileID: 749701342}
   - component: {fileID: 749701344}
   - component: {fileID: 749701343}
+  - component: {fileID: 749701345}
   m_Layer: 5
   m_Name: BackwardPedal
   m_TagString: Untagged
@@ -1154,6 +1173,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749701341}
   m_CullTransparentMesh: 1
+--- !u!114 &749701345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749701341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5077ec6d88faa8f40b72c7d834cc37b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pedalDown: {fileID: 21300000, guid: 38e7e5730c77c4844b9441136ca64e3e, type: 3}
+  pedalUP: {fileID: 21300000, guid: 19f2b7e739e7bd4448a0e5935ad5294e, type: 3}
+  car: {fileID: 53672204}
 --- !u!1 &829731244
 GameObject:
   m_ObjectHideFlags: 0
