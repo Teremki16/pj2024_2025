@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="meatgrinder">Name</label>
+        <input type="text" id="meatgrinder" name="meatgrinder">
+        <br>
+
+        <label for="desc">Description</label>
+        <textarea name="desc" id="desc"></textarea>
+        <br>
+
+        <label for="photo_url">Photo URL</label>
+        <input type="text" id="photo_url" name="photo_url">
+        <br>
+
+        <label for="price">price</label>
+        <input type="number" id="price" name="price">
+        <br>
+        <button>Add</button>
+
+
+    </form>
+    <script>
+
+        document.querySelector("form").addEventListener("submit", (e) => {
+            e.preventDefault()
+            let data = {
+                meatgrinder: e.target["meatgrinder"].value,
+                desc: e.target["desc"].value,
+                photo_url: e.target["photo_url"].value,
+                price: e.target["price"].value,
+
+
+            }
+            var settings = {
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": "675da0817aaf617de0b53c2b",
+                    "cache-control": "no-cache"
+                },
+                body: JSON.stringify(data)
+            }
+
+
+
+            fetch("https://basement-42c4.restdb.io/rest/products", settings)
+                .then(d => d.json())
+                .then(d => {
+                    console.log(d)
+                })
+        })
+    </script>
+
+</body>
+
+</html>
