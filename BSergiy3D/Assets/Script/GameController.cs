@@ -7,6 +7,11 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject panel;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void Pause()
     {
         panel.SetActive(true);
@@ -22,5 +27,15 @@ public class GameController : MonoBehaviour
     public void GoToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
