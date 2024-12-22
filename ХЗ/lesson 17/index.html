@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+
+        .box {
+            background-color: gray;
+            width: 150px;
+            height: 150px;
+            flex-shrink: 1rem;
+            border-radius: 0.5rem;
+            padding: center;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-family: monospace;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        .dropMenu {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 1rem auto;
+        }
+
+        .dropBody {
+            background-color: bisque;
+            padding: 1rem;
+            border-radius: 0 0 1rem 1rem;
+            margin-top: -5px;
+        }
+
+        .dropHead {
+            background-color: rgba(232, 196, 153, 0.747);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">I will hide fast</div>
+        <div class="box">I will hide slow</div>
+        <div class="box">I will hide in 3 seconds</div>
+        <div class="box">I will hide in 1 second and call the function alert</div>
+        <div class="box">Return all boxes</div>
+    </div>
+
+    <div class="dropMenu">
+        <div class="dropHead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quae optio dolore dolores veritatis expedita id doloremque neque? Obcaecati, amet!</div>
+        <div class="dropBody">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum nemo voluptatibus cum labore, laborum illo tenetur necessitatibus dolore architecto quisquam?
+        </div>
+    </div>
+</body>
+</html>
