@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js " defer></script>
+    <script src="script.js " defer></script>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+        .box{
+            background-color: red;
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-family:sans-serif;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        .box:nth-child(1){background-color: green;}
+        .box:nth-child(2){background-color: red;}
+        .box:nth-child(3){background-color: black;}
+        .box:nth-child(4){background-color: blue;}
+        .box:nth-child(5){background-color: yellow;}
+
+        .dropMemu{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 1rem auto;
+        }
+        .dropBody{
+            background-color: bisque;
+            padding: 1rem;
+            border-radius: 0 0 1rem 1rem;
+            margin-top: -5px;
+        }
+        .dropHead{
+            background-color: rgb(255, 201, 135);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box">slow</div>
+    <div class="box">fast</div>
+    <div class="box">hide 3 seconds</div>
+    <div class="box">пісюн</div>
+    <div class="box">мишка</div>
+</div>
+    <div class="dropMenu">
+    <Div class="dropHead">Lorem, ipsum dolor.</Div>
+    <div class="dropBody">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque nemo quia enim vel explicabo, dolores doloremque ullam magnam! Debitis, fugiat itaque rem expedita tenetur maxime optio ullam possimus cupiditate sapiente.
+    </div>
+</div>
+    
+</body>
+</html>
