@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js" defer></script>
+    <script src="script.js" defer></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+        }
+
+        .box {
+            background-color: gray;
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-family: monospace;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .box:nth-child(1) {
+            background-color: red;
+        }
+
+        .box:nth-child(2) {
+            background-color: blue;
+        }
+
+        .box:nth-child(3) {
+            background-color: green;
+        }
+
+        .box:nth-child(4) {
+            background-color: yellow;
+        }
+
+        .box:nth-child(5) {
+            background-color: purple;
+        }
+
+        .dropMenu{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 1rem auto;
+        }
+
+        .dropBody{
+            background-color: bisque;
+            padding: 1rem;
+            border-radius: 0 0 1rem 1rem;
+            margin-top: -5px;
+        }
+
+        .dropHead{
+            background-color: rgb(255, 201, 135);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">I will hide fast</div>
+        <div class="box">I will hide slow</div>
+        <div class="box">I will hide in 3 seconds</div>
+        <div class="box">i will hide in 1 second and call the function alert</div>
+        <div class="box">Return all boxes</div>
+    </div>
+
+    <div class="dropMenu">
+        <div class="dropHead">Lorem ipsum dolor sit amet.</div>
+        <div class="dropBody">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur vero nemo, quam commodi temporibus eum impedit non id maxime necessitatibus!</div>
+    </div>
+</body>
+
+</html>
