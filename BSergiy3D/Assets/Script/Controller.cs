@@ -149,6 +149,29 @@ public class Controller : MonoBehaviour
             if (other.gameObject.transform.root.gameObject
             .GetComponent<EnemyController>().isAttack)
                 animator.Play("Sword_Hit_L_2");
+            if(other.gameObject.tag == "Bonus")
+            {
+                GameObject tree = GameObject.Find("Tree");
+                int count = tree.transform.childCount;
+                for(int i = 0; i < count; i++)
+                {
+                    Transform child = tree.transform.GetChild(i);
+                    if(child.childCount == 0)
+                    {
+                        other.transform.position = child.transform.position;
+                        other.transform.SetParent(child.transform);
+                        other.gameObject.GetComponent<MeshRenderer>().material.color =
+                            new Color(
+                                Random.Range(0f, 1f),
+                                Random.Range(0f, 1f),
+                                Random.Range(0f, 1f)
+                                );
+
+                        break;
+                    }
+
+                }
+            }
 
         }
     }
