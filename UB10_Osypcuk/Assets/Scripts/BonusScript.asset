@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: BonusScript
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"853348b4-ac4b-4a16-a94b-737473dce7f6","$version":"A","$type":"Unity.VisualScripting.Start","$id":"9"},{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":60.0},"guid":"75dc9bc7-97bf-47bb-90c3-647c156c933d","$version":"A","$type":"Unity.VisualScripting.Update"},{"chainable":false,"parameterNames":["force","mode"],"member":{"name":"AddForce","parameterTypes":["UnityEngine.Vector2","UnityEngine.ForceMode2D"],"targetType":"UnityEngine.Rigidbody2D","targetTypeName":"UnityEngine.Rigidbody2D","$version":"A"},"defaultValues":{"target":null,"%force":{"x":0.0,"y":-1.0,"$type":"UnityEngine.Vector2"},"%mode":{"$content":"Impulse","$type":"UnityEngine.ForceMode2D"}},"position":{"x":92.0,"y":-140.0},"guid":"b5d9aff7-f494-4206-a32b-f48cc128a823","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"13"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"13"},"destinationKey":"enter","guid":"9055d795-f135-4b20-aa78-aaa6e592b0d2","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}}'
+    _objectReferences: []

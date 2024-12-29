@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="desc">Description</label>
+        <input type="text" id="desc" name="desc" required>
+        <br>
+        <label for="photo_url">Photo URL</label>
+        <input type="text" id="photo_url" name="photo_url" required>
+        <br>
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" required>
+        <br>
+
+        <button>ADD</button>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault()
+            let body = {
+                name: event.target["name"].value,
+                desc: event.target["name"].value,
+                photo_url: event.target["name"].value,
+                price: event.target["name"].value,
+            }
+            var settings = {
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/json",
+                    "x-apikey": "675ed49ff01ba3afc6c106d3",
+                    "cache-control": "no-cache"
+                },
+                body: JSON.stringify(body)
+            };
+
+
+            let url = "https://nd141-1b38.restdb.io/rest/products"
+
+            let products = []
+
+            fetch(url, settings).then(res => res.json()).then((data) => {
+                console.log(data)
+            })
+        })
+    </script>
+</body>
+
+</html>
