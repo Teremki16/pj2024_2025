@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7403203402463084121}
   m_Layer: 0
   m_Name: EnemyShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   _data:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
-    - {fileID: 11400000, guid: bd76e2edb9e486d4f97c08a86c3d3243, type: 2}
+    - {fileID: 11400000, guid: 8145f5d696c8b53408a09e555125e6ea, type: 2}
 --- !u!60 &7403203402463084121
 PolygonCollider2D:
   m_ObjectHideFlags: 0
