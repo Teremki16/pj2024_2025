@@ -51,3 +51,16 @@ function drawCart() {
     let a = cart.map((el) => `<li>${el.name} | ${el.price} $</li>`).join("")
     document.querySelector(".cart_items").innerHTML = a
 }
+
+document.querySelector("form").addEventListener("submit", (e)=>{
+    e.preventDefault()
+    let body = {
+        cart: JSON.stringify(cart),
+        address: e.target["address"].value,
+        telephone: e.target["telephone"].value,
+        FirstName: e.target["FirstName"].value,
+    }
+    e.reset()
+
+
+})
