@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class CarController : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class CarController : MonoBehaviour
 
     public bool fp = false;
     public bool bp = false;
+
+    private float Amount = 0f;
     void Start()
     {
         motor.maxMotorTorque = 10000;
@@ -147,6 +151,13 @@ public class CarController : MonoBehaviour
         {
             fuel = 100;
             GameObject.Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.tag == "Bonus")
+        {
+            GameObject.Destroy(collision.gameObject);
+            Amount += 1f / 10f;
+            GameObject Tree = GameObject.Find("Tree");
+            Tree.GetComponent<Image>().fillAmount = Amount;
         }
     }
     IEnumerator FuelReduce()
