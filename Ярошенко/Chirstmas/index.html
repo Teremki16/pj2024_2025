@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+  
+    <div class="search">
+        <h1 class="H">Best Christmas films!</h1>
+
+    </div>
+   
+   
+    <script>
+         
+        fetch("https://www.omdbapi.com/?s=christmas&apikey=494f154a").then(res => res.json()).then(data => {
+            console.log(data)
+            data.Search.forEach(el => {
+                document.querySelector(".search").innerHTML += `
+        <div class="mem">
+        <h1>${el.Title}</h1>
+     <img src="${el.Poster}" alt="">
+        <p>Year: ${el.Year}</p>
+        </div>
+        `
+            })
+        })
+    </script>
+   
+
+
+</body>
+
+</html>

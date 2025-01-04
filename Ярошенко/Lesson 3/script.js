@@ -8,7 +8,7 @@ fetch("https://raw.githubusercontent.com/RobocodeSchool/web/master/historycats.j
 
     data.members.forEach(el=>{
         document.querySelector(".members").innerHTML += `
-        <div class="mem"
+        <div class="mem">
         <h1>${el.name}</h1>
         <p>Secret identity ${el.secretIdentity}</p>
         <p>Age: ${data.age}</p>
