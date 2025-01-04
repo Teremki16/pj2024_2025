@@ -4,7 +4,7 @@ using TMPro;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class CarController : MonoBehaviour
     private bool moveBackward = false;
 
     private float speed = 0f;
-
+    float Amount = 0f;
     private bool isGrounded = false;
 
     private Rigidbody2D rb;
@@ -157,6 +157,13 @@ public class CarController : MonoBehaviour
         {
             fuel = 100;
             GameObject.Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.tag == "bonus")
+        {
+            GameObject.Destroy(collision.gameObject);
+            Amount += 1f / 10f;
+            GameObject Tree = GameObject.Find("XmasTree");
+            Tree.GetComponent<Image>().fillAmount = Amount;
         }
     }
 
