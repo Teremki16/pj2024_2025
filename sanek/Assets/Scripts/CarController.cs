@@ -4,7 +4,7 @@ using TMPro;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class CarController : MonoBehaviour
 
     public bool fp = false;
     public bool bp = false;
+
+    private float Amount = 0f;
 
     void Start()
     {
@@ -157,6 +159,14 @@ public class CarController : MonoBehaviour
         {
             fuel = 100;
             GameObject.Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Bonus") 
+        if (collision.gameObject.tag == "Bonus") 
+        {
+            GameObject.Destroy(collision.gameObject);
+            Amount += 1f / 6f;
+            GameObject Tree = GameObject.Find("Tree");
+            Tree.GetComponent<Image>().fillAmount = Amount;
         }
     }
 
