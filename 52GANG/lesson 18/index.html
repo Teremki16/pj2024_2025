@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>Password check</header>
+    <div class="form">
+        <label for="email">Email</label>
+        <input type="text" id="email">
+        <label for="password">Password</label>
+        <input type="text" id="password">
+
+        <div class="errorBar">
+            <div class="lenghtError">Password less than 8 characters</div>
+            <div id="upperError">Password has no capital letters</div>
+            <div id="letterError">Password has no letters</div>
+            <div id="digitsError">Password has no digits</div>
+            <div id="emailError">Wrong email</div>
+        </div>
+
+        <button>Submit</button>
+
+        <ul class="rules">
+            <li>Password must have more than 8 characters</li>
+            <li>Password must have at least one capital letters</li>
+            <li>Password must have at least one letters</li>
+            <li>Password must have at least one digits</li>
+            <li>Email must be correct format</li>
+        </ul>
+    </div>
+</body>
+
+</html>
