@@ -18,6 +18,6 @@ $(".box:nth-child(5)").click(function(){
     $(".box").show("fast")
 })
 
-$(".dropHead").clikc(function(){
-    $(".dropBody").toggle("fast")
+$(".dropHead").click(function(){
+    $(".dropBody").fadeToggle("fast")
 })
