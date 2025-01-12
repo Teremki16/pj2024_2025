@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <script src="../jquery.js">defer</script>
+    <style>
+        canvas{
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="score"></div>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector("canvas")
+        canvas.width = 500
+        canvas.height = 600
+
+        let c = canvas.getContext("2d")
+
+        let player = new Image()
+        player.src = "player.png"
+
+        let bird = new Image()
+        bird.src = "bird.png"
+
+        let sound = new Audio()
+        sound.src = "score.mp3"
+
+        let birdX = 100
+        let birdY = 0
+
+        let x = 250
+
+        setInterval(()=>{
+            c.clearRect(0,0,canvas.width,canvas.height)
+            c.drawImage(player,x,500,100,100)
+            c.drawImage(bird,birdX,birdY)
+            birdY += 5
+
+            if(birdY > canvas.height){
+                birdY = 0
+                birdX = Math.random() * canvas.height
+                score = 0
+            }
+        },20)
+            if(birdY > x && birdY < x + 100 && birdY > canvas.height - 100){
+                birdY = 0
+                birdX = Math.random() * canvas.width
+                sound.play()
+                score++
+            }
+            document.querySelector(".score").innerHTML = "Score:"
+
+        document.addEventListener("keydown", (event)=>{
+            if(event.key == "ArrowLeft"){
+                x -= 7
+            }
+        })
+        document.addEventListener("keydown", (event)=>{
+            if(event.key == "ArrowRight"){
+                x += 7
+            }
+        })
+
+    </script>
+</body>
+</html>

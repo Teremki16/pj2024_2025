@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button>Launch!</button> -->
+    <div class="box"></div>
+    <script src="../jquery.js"></script>
+    <script>
+        $(".box").click(function(){
+            $(".box").animate({ height:"300px",opacity:0.5},500)
+            $(".box").animate({ width:"300px",opacity:1},500)
+            $(".box").animate({ height:"100px",opacity:0.5},400)
+            $(".box").animate({ width:"100px",opacity:1},500)
+        })
+
+    </script>
+</body>
+</html>

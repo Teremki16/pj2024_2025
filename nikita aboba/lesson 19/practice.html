@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+        }
+
+        .head {
+            border: 1px solid gray;
+            margin: 10px 5px;
+            padding: 5px;
+            text-align: center;
+            background-color: rgb(42, 240, 240);
+        }
+
+        .body {
+            margin: 20px;
+            background-color: red;
+        }
+        section{
+            flex-basis: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="head">click on me 1</div>
+        <div class="body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In ducimus libero ex molestias, sit
+            eaque dolore porro veritatis esse quos perspiciatis fugiat praesentium nostrum aliquam adipisci nemo a quasi
+            possimus voluptatum, magni nam illo! Laudantium laborum, quas distinctio molestiae sed dolores rerum,
+            sapiente quibusdam et voluptates placeat, consectetur error quis!</div>
+    </section>
+    <section>
+        <div class="head">click on me  2</div>
+        <div class="body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus accusantium enim soluta nisi omnis illum, magni officiis laborum, atque, unde et quo ab? Accusantium, quam.</div>
+    </section>
+    <script>$(".box").click(function () {
+            $(this).fadeOut(2000, () => $(".box").fadeIn("fast"))
+        })
+
+        $(".head").click(function () {
+            $(this).parent().children(".body").slideToggle("fast")
+        })</script>
+</body>
+
+</html>
