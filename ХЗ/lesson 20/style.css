@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+}
+
+section{
+    flex-basis: 50%;
+}
+
+.head {
+    margin: 10px 5px;
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(93, 93, 183, 0.692);
+}
+
+.body {
+    margin: 20px;
+    background-color: rgba(0, 128, 0, 0.616);
+}
