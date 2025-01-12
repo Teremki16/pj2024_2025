@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector("canvas");
+        canvas.width = 400;
+        canvas.height = 600;
+
+        let c = canvas.getContext("2d")
+
+        let player = new Image()
+        player.src = "player.png"
+          
+        let bird = new Image()
+        bird.src = "bird.png"
+
+        let birdX = 100;
+        let birdY = 0;
+
+        
+        let x = 250;
+
+        setInterval(() => {
+            c.clearRect(0, 0, canvas.width, canvas.height)
+            c.drawImage(player, x, 500, 100, 100)
+            c.drawImage(bird, birdX, birdY, 30, 30)
+            birdY += 5
+        }, 20)
+
+
+        if(birdY >canvas.height){
+            birdY = 0
+            birdX = math.random() * canvas.width
+            ,20}
+
+
+            if(birdX > x && birdX < x + 100 && birdY > canvas.height - 100){
+                birdY = 0
+                birdX = math.random() * canvas.width
+                sound.play()
+            }
+
+        document.addEventListener("keydown", (e) => {
+            if(e.key == "ArrowRight"){
+                x += 10
+            }
+            if(e.key == "ArrowLeft"){
+                x -= 10
+            }
+        })
+        
+    </script>
+    
+</body>
+</html>
