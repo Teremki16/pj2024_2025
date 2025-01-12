@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.wrapper {
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+    
+}
+
+.head{
+    border: 1px solid gray;
+    margin: 0 ;
+    padding: 5px;
+    background-color: blue;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2px;
+
+}
+
+.body {
+    border: 1px solid;
+    
+    padding: 5px;
+    background-color: green;
+    border-radius: 2px;
+   
+}
+
+section{
+    width: 500px;
+    margin: 2px;
+}
