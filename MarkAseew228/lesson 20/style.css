@@ -1,0 +1,35 @@
+.wrapper{
+    display: flex;
+    border: 1px solid green;
+    width: 500px;
+    margin: 20px auto;
+    gap: 1rem;
+    /* background-color: green; */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head{
+    border: 1px solid blue;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.body{
+    padding: 20px;
+    background-color: green;
+}
+
+section{
+    flex-basis: 50%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
