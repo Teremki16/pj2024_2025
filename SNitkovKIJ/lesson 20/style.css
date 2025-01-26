@@ -1,22 +1,38 @@
-.wrapper {
-
-}   
-.head{
-    border: 1px solid blue;
-    margin: 10px 5px;
-    padding: 5px;
+.Linkblock{
+    background-color: lightcoral;
     text-align: center;
-    background-color: lightblue;
-  
+    padding: 1rem;
 }
-body{
-    border: 1px solid ;
-    
-    padding: 5px;
-    background-color: green;
-    border-radius: 3px;
+
+.Link{
+    font-size: 3rem;
+
 }
-section{
-    width: 500px;
-    margin: 2px;
+
+.linktext, .linkbutton {
+    padding: 0.3rem 1rem;
+
 }
+
+.rgbBar{
+    background-color: rgba(0, 0, 0, 0.215);
+    padding: 1rem;
+    width: fit-content;
+    margin: 1rem auto;
+}
+.rgbBar input[type="text"]{
+    width: 30px;
+}
+.rgbBar input[type="range"]{
+    width: 300px;
+}
+.rgbBar div:nth-child(1){
+    accent-color: red;
+}
+.rgbBar div:nth-child(2){
+    accent-color: green;
+}
+
+
+
+
