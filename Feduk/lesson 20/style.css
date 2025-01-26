@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head {
+    border: 1px solid blue;
+    margin: 10px 0px;
+    padding: 5px 20px;
+    text-align: center;
+    background-color:chartreuse ;
+}
+
+.wrapper {
+    border: 1px solid gray;
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+    background-color: blanchedalmond;
+    
+}
+.body {
+    padding: 20px;
+    background-color: aquamarine;
+    border-radius: 2rem;
+    
+}

@@ -1,0 +1,39 @@
+.linkblock {
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.Link {
+    font-size: 3rem;
+}
+
+.linkText .linkButton{
+    padding: 0.3rem 1rem;
+}
+
+
+.rgbBar {
+    background-color: rgba(0, 0, 0, 0.215);
+    padding: 1rem;
+    width: fit-content;
+    margin: 1rem auto;
+}
+
+.rgbBar input[type="text"] {
+    width: 30px;
+}
+
+
+.rgbBar input[type="range"] {
+    width: 300px;
+}
+
+.rgbBar div:nth-child(1) {
+    accent-color: red;
+}
+.rgbBar div:nth-child(2) {
+    accent-color: green;
+}
+
