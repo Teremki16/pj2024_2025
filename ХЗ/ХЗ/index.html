@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="score"></div>
+    <canvas></canvas>
+    <script>
+        let canvas = document.querySelector("canvas")
+        canvas.width = 500
+        canvas.height = 500
+
+        let c = canvas.getContext("2d")
+
+        let player = new Image()
+        player.src = "player.png"
+
+        let bird = new Image()
+        bird.src = "bird.png"
+
+        let sound = new Audio()
+        sound.src = "score.mp3"
+
+        let birdX = 100;
+        let birdY = 0
+
+        let x = 250
+
+        let score = 0;
+
+        setInterval(() => {
+            c.clearRect(0, 0, canvas.width, canvas.height)
+            c.drawImage(player, x, 400, 100, 100)
+            c.drawImage(bird, birdX, birdY)
+            birdY += 5
+
+            if(birdY > canvas.height){
+                birdY = 0
+                birdX = Math.random() * canvas.width
+                score = 0
+            }
+
+            if(birdX > x && birdX < x + 100 && birdY > canvas.height - 100){
+                birdY = 0
+                birdX = Math.random() * canvas.width
+                sound.play()
+                score++
+            }
+            document.querySelector(".score").innerHTML = "Score:" + score
+        }, 20);
+
+        document.addEventListener("keydown", (event)=>{
+            if(event.key == "ArrowLeft"){
+                x -= 5
+            }
+            if(event.key == "ArrowRight"){
+                x += 5
+            }
+        })
+    </script>
+</body>
+</html>
