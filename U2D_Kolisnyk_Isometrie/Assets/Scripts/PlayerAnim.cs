@@ -36,7 +36,7 @@ public class PlayerAnim : MonoBehaviour
     public void SetDir(Vector2 dir)
     {
         string[] dirArray = null;
-        if(dir.magnitude <0.2)
+        if(dir.magnitude <0.5f)
         {
             dirArray = idleAnim;
             lastDir = DirToIndex(dir);

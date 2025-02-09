@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
         MoveV = Input.GetAxis("Vertical") * speed;
         rb.velocity = new Vector2(MoveH, MoveV);
         Vector2 direction = new Vector2(MoveH, MoveV);
+        if(direction.magnitude != 0f)
         FindObjectOfType<PlayerAnim>().SetDir(direction);
     }
 }
