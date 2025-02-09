@@ -37,7 +37,7 @@ public class PlayerAnimations : MonoBehaviour
     public void SetDirection(Vector2 direction)
     {
         string[] directionArray = null;
-        if (direction.magnitude < 0.01)
+        if (direction.magnitude < 0.5f)
         {
             directionArray = idleAnimations;
             lastDirection = DirectionToIndex(direction);
