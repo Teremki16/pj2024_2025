@@ -27,7 +27,7 @@ public class BonusSpawn : MonoBehaviour
             float x = Random.Range(bottomleft.x, topleft.x);
             float y = Random.Range(bottomleft.y, topleft.y);
             Instantiate(coin, new Vector3 (x, y, -1),Quaternion.identity);
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(2f);
         }  
     }
 }

@@ -23,4 +23,5 @@ public class PlayerController : MonoBehaviour
         if(direction.magnitude != 0f)
         FindObjectOfType<PlayerAnim>().SetDir(direction);
     }
+    
 }
