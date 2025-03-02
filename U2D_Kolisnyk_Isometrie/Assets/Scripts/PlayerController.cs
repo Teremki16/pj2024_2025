@@ -23,5 +23,12 @@ public class PlayerController : MonoBehaviour
         if(direction.magnitude != 0f)
         FindObjectOfType<PlayerAnim>().SetDir(direction);
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("orlan"))
+        {
+            FindObjectOfType<HealthScrit>().damage(collision.gameObject.transform.position);
+        }
+    }
+
 }
