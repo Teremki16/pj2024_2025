@@ -11,7 +11,7 @@ public class JewelSpawnerScript : MonoBehaviour
     [SerializeField] GameObject coin;
     private void Update()
     {
-        scoreText.SetText( "SCore: " + score.ToString());
+        scoreText.SetText( "SCore" + score.ToString());
      }
 
     IEnumerator spawn()
