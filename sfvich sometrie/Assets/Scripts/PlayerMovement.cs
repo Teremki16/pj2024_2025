@@ -23,4 +23,23 @@ public class PlayerMovement : MonoBehaviour
         if(direction.magnitude != 0f)
         FindObjectOfType<PlayerAnimations>().SetDirection(direction);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            FindObjectOfType<LifeScript>().Damage(collision.gameObject.transform.position);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
