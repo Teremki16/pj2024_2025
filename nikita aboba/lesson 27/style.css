@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.s {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 0; */
+    background-color: white;
+}
+
+.scene1{
+    background-color: yellow;
+
+}
+
+.scene2{
+    background-color: red;
+}
+
+img {
+    height: 75%;
+    margin: 0 auto;
+    display: block;
+    padding-top:25%;
+}
+
+.abracadabra {
+    transition: 1s;
+    opacity: 1;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgba(224, 224, 60, 0.872),yellow);
+    color: white;
+    text-shadow: 0 0 5px black;
+    font-family: sans-serif;
+}
+
+header h1{
+    font-size: 3rem;
+}
+
+footer{
+    height: 100vh;
+    color: black;
+}
+
