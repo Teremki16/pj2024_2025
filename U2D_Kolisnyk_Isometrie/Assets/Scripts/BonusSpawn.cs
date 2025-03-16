@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class BonusSpawn : MonoBehaviour
 {
     public int score;
     [SerializeField] TextMeshProUGUI scoretxt;
+    [SerializeField] int goalscore = 25;
 
+    [SerializeField] GameObject victorypanel;
     [SerializeField] GameObject coin;
     private void Start()
     {
@@ -16,7 +18,12 @@ public class BonusSpawn : MonoBehaviour
     }
     private void Update()
     {
-        scoretxt.text = score+"";
+        scoretxt.text = score+"/"+goalscore;
+        if(score>=goalscore)
+        {
+            victorypanel.SetActive(true) ;
+            
+        }
     }
     IEnumerator spawn()
     {
@@ -29,5 +36,17 @@ public class BonusSpawn : MonoBehaviour
             Instantiate(coin, new Vector3 (x, y, -1),Quaternion.identity);
             yield return new WaitForSecondsRealtime(2f);
         }  
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Next()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
+    public void MenuOpen()
+    {
+        SceneManager.LoadScene(0);
     }
 }

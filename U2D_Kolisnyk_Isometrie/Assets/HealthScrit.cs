@@ -17,7 +17,7 @@ public class HealthScrit : MonoBehaviour
     {
         Vector3 impuls = transform.position - enemypos;
         impuls = impuls.normalized;
-        GameObject.Find("Player").transform.Translate(impuls*0,5f);
+        GameObject.Find("Player").transform.Translate(impuls*0.5f);
         health--;
         hpbar.sprite = imgs[health];
         if(health<=0)

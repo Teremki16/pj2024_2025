@@ -7,6 +7,8 @@ public class EnemyGFX : MonoBehaviour
 {
     public AIPath path;
     public SpriteRenderer sprite;
+
+    
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -23,4 +25,5 @@ public class EnemyGFX : MonoBehaviour
             sprite.flipX = false;
         }
     }
+    
 }
