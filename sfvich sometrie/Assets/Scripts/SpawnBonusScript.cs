@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnBonusScript : MonoBehaviour
 {
     public int score = 0;
+    [SerializeField] int goalScore = 25;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] GameObject victoryPanel;
 
     [SerializeField] GameObject coin;
 
     private void Update()
     {
-        scoreText.SetText("Score: " + score.ToString());
+        scoreText.SetText($"Score: {score} / {goalScore}");
+        if(score >= goalScore)
+        {
+            victoryPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
     IEnumerator spawn()
     {
@@ -33,5 +41,18 @@ public class SpawnBonusScript : MonoBehaviour
     private void Start()
     {
         StartCoroutine(nameof(spawn));
+    }
+
+    public void Restar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
