@@ -1,0 +1,33 @@
+@font-face {
+    font-family: myfont;
+    src: url("Tiny5-Regular.ttf");
+}
+
+body {
+    font-family: myfont, sans-serif;
+    background: url("https://static.tvtropes.org/pmwiki/pub/images/papyrus_spaghetti.jpg");
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    text-decoration: none;
+    color: red;
+}
+
+h1{
+    color: wheat;
+}
+h2{
+    color: идфсл;
+}
