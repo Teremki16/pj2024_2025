@@ -23,9 +23,10 @@ using UnityEngine.UI;
         destination = GetComponent<AIDestinationSetter>();
         target = GameObject.Find("Player");
         destination.target = target.transform;
-       for (IntRect i = 0; i < GameObject.Find("PatrolPoints").transform.childCount; i++)
+       for (int i = 0; i < GameObject.Find("PatrolPoints").transform.childCount; i++)
         {
-
+            Transform point =  GameObject.Find("PatrolPoints").transform.GetChild(i);
+            patrol.targets.SetValue(point, i);
         }
     }
     private void Update()
@@ -51,6 +52,7 @@ using UnityEngine.UI;
             Destroy(collision.gameObject);
             if (health <= 0) Destroy(gameObject);
             transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(100, 100, 55);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().DamageS();
             Invoke("ChangeColor", 0.2f);
         }
     }

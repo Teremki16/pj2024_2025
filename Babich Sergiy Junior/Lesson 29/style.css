@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(blue, red, silver);
+    color: white;
+    text-shadow: 0 0 5px red;
+
+}
+
+header img{
+    height:  30vh;
+}
+
+.paralax{
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    height: 300%;
+    object-fit: cover;
+    bottom: 0;
+}
+
+.content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+section{
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

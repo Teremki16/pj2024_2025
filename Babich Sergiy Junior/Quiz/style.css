@@ -1,0 +1,29 @@
+@font-face {
+    font-family: mygitler;
+    src: url("PixelifySans-Regular.ttf");
+}
+
+body{
+    font-family: mygitler, sans-serif;
+    background: url("https://s00.yaplakal.com/pics/pics_original/6/1/3/1225316.gif");
+    height: 100vh;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    background-size: cover;
+   
+}
+
+a{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    text-decoration: none;
+    color: red;
+    text-shadow: 0 0 10px rgb(255, 104, 104);
+}
+h1, h2{
+    color: red;
+}

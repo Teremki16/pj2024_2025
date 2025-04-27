@@ -10,6 +10,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(bullet, transform.position, transform.rotation);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().GunS();
         }
         
     }
