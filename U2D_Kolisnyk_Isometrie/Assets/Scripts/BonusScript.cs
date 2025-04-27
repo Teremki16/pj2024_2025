@@ -9,6 +9,7 @@ public class BonusScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             FindObjectOfType<BonusSpawn>().score++;
+            FindObjectOfType<SoundManager>().JewelS();
             Destroy(gameObject);
         }
     }

@@ -22,7 +22,7 @@ public class BonusSpawn : MonoBehaviour
         if(score>=goalscore)
         {
             victorypanel.SetActive(true) ;
-            
+            FindObjectOfType<SoundManager>().LevelS();
         }
     }
     IEnumerator spawn()

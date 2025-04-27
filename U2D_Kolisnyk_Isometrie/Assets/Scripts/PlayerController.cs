@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("orlan"))
         {
             FindObjectOfType<HealthScrit>().damage(collision.gameObject.transform.position);
+            FindObjectOfType<SoundManager>().DamageS();
         }
     }
 

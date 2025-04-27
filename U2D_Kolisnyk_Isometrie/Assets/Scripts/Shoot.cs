@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
         {
             anim.Play("Gun");
             GameObject tempobj = Instantiate(bullet, transform.position, transform.rotation);
+            FindObjectOfType<SoundManager>().GunS();
             tempobj.GetComponent<Rigidbody2D>().AddForce(transform.right * 10f, ForceMode2D.Impulse);
         }
     }

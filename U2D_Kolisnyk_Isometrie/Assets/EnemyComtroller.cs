@@ -23,9 +23,10 @@ public class EnemyComtroller : MonoBehaviour
         player = FindObjectOfType<PlayerController>().gameObject;
         ai.target = player.transform;
 
-        for (int i=0; i < transform.parent.transform.GetChildCount() - 1;i++)
+        for (int i=1; i < transform.parent.childCount - 1;i++)
         {
-
+            Transform point = transform.parent.GetChild(i);
+            patrol.targets.SetValue(point,i);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,8 +38,10 @@ public class EnemyComtroller : MonoBehaviour
             Destroy(collision.gameObject);
             transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
             Invoke("defcolor", 0.2f);
-            if(hp<=0)
+            FindObjectOfType<SoundManager>().DamageS();
+            if (hp<=0)
             {
+
                 Destroy(gameObject);
             }
         }
