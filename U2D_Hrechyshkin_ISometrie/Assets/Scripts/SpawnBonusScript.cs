@@ -18,6 +18,7 @@ public class SpawnBonusScript : MonoBehaviour
         if (score >= goalScore)
         {
             victoryPanel.SetActive(true);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().LevelCompleteS();
             Time.timeScale = 0;
         }
     }

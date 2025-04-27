@@ -12487,6 +12487,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586842904}
   m_CullTransparentMesh: 1
+--- !u!1 &609835798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609835800}
+  - component: {fileID: 609835799}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &609835799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609835798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec43af9393db844284aaa7f97786317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageSound: {fileID: 8300000, guid: 793aa7283318b64479a50a822a4e5c66, type: 3}
+  JameSound: {fileID: 8300000, guid: 5d91bf93e3a4e274abc22775f15ce203, type: 3}
+  LevelCompleteSound: {fileID: 8300000, guid: e5b9f994fa8f76b42be43fdcd7c08649, type: 3}
+  GunSound: {fileID: 8300000, guid: 5cca53f0514130e4fafc80785d94e8e8, type: 3}
+--- !u!4 &609835800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609835798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0470982, y: 4.1276646, z: -0.03126569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695052788
 GameObject:
   m_ObjectHideFlags: 0
@@ -12518,7 +12566,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  goalScore: 25
   scoreText: {fileID: 586842906}
+  victoryPanel: {fileID: 0}
   coin: {fileID: 2303254421022087293, guid: 5f64ff7cb61ba4d448a4f145bb784bcd, type: 3}
 --- !u!4 &695052790
 Transform:

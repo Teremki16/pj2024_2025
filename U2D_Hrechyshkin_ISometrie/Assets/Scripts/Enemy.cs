@@ -27,7 +27,8 @@ public class Enemy : MonoBehaviour
         destination.target = target.transform;
         for (int i = 0; i < GameObject.Find("PatrolPoints").transform.childCount; i++)
         {
-
+            Transform point = GameObject.Find("PatrolPoints").transform.GetChild(i);
+            patrol.targets.SetValue(point, i);
         }
 
     }
@@ -62,7 +63,8 @@ public class Enemy : MonoBehaviour
             if (health <= 0) Destroy(gameObject);
             transform.GetChild(0).GetChild(0).gameObject
                 .GetComponent<SpriteRenderer>().color = Color.red;
-                Invoke("ChangeColor", 0.2f);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().DamageS();
+            Invoke("ChangeColor", 0.2f);
         }
     }
 
