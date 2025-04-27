@@ -27,7 +27,8 @@ public class Enemy : MonoBehaviour
         destination.target = target.transform;
         for (int i = 0; i < GameObject.Find("PatrolPoint").transform.childCount; i++)
         {
-
+            Transform point = GameObject.Find("PatrolPoints").transform.GetChild(i);
+            patrol.targets.SetValue(point, i);
         }
 
     }
