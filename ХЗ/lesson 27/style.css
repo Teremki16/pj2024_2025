@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.s {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 0; */
+    background-color: white;
+}
+
+img {
+    height: 50%;
+}
+
+.abracadabra {
+    transition: 1s;
+    opacity: 1;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(rgb(203, 203, 98), rgb(145, 31, 31));
+    color: white;
+    text-shadow:  0 0 5px black;
+    font-family: cursive;
+}
+
+header h1 {
+    font-size: 3rem;
+}
