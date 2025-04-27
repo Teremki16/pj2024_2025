@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(blue, rgb(13, 0, 202),rgb(255, 204, 0), yellow);
+    font-family: monospace;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.dropDown {
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+.dropDown .head {
+    background-color: blue;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.dropDown .body {
+    background-color: rgb(0, 255, 255);
+    padding: 1rem;
+    border-radius: 0 0 4rem 1rem;
+}
+
+ul {
+    margin-left: 1rem;
+}
+
+.quiz {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.quiz audio{
+    width: 400px;
+    box-shadow: 0 0 5px pink;
+    border-radius: 2rem;
+    display: none;
+}
+.start{
+    margin: 0 auto;
+    display: block;
+    font-size: 2rem;
+    background: blue;
+    color: white;
+    padding: 1rem;
+    border: navajowhite;
+    border-radius: 0.5rem;
+}
+.form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.form input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    border-bottom: 2px solid blue;
+    color: yellow;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+}
+
+#go {
+    background-color: blue;
+    border: none;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 0.3rem;
+}
+
+.progres {
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+.progres h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+a.next {
+    display: none;
+    width: fit-content;
+    background-color: yellow;
+    color: blue;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+}
+.timer{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+}
+.timer h3{
+    text-align: center;
+}

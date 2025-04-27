@@ -1,0 +1,27 @@
+@font-face {
+    font-family: myfont;
+    src: url(Workbench-Regular-VariableFont_BLED\,SCAN.ttf);
+}
+
+body {
+    font-family: myfont, sans-serif;
+    background: url();
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    text-decoration: none;
+    color: red;
+    text-shadow: 0 0 10px rgb(145, 104, 104);
+}
