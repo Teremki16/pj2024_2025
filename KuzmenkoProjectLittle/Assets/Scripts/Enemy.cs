@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
+using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Patrol patrol;
     [SerializeField] AIDestinationSetter destination;
     [SerializeField] GameObject target;
 
+    Slider slider;
+
     [SerializeField] int health = 5;
 
     private void Start()
     {
         slider = gameObject.transform.GetChild(1).
-            getComponentInChildren<Slider>();
+            GetComponentInChildren<Slider>();
         slider.minValue = 1;
         slider.maxValue = health;
         slider.value = health;
@@ -24,11 +26,32 @@ public class Enemy : MonoBehaviour
         destination.target = target.transform;
         for (int i = 0; i < GameObject.Find("PatrolPoints").transform.childCount; i++)
         {
-
+            Transform point = GameObject.Find("PatrolPoints").transform.GetChild(i);
+            patrol.targets.SetValue(point, i);
         }
 
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            Debug.Log("damage enemy");
+            health--;
+            slider.value = health;
+            Destroy(collision.gameObject);
+            if (health <= 0) Destroy(gameObject);
+            transform.GetChild(0).gameObject
+                .GetComponent<SpriteRenderer>()
+                .color = new Color(255, 0, 0);
+            GameObject.Find("SoundManager")
+               .GetComponent<SoundManager>()
+               .DamageS();
+            s
+        }
+    }
+
     void Update()
     {
         float distance = Vector2.Distance(transform.position,

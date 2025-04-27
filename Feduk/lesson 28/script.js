@@ -1,9 +1,9 @@
 const controller = new ScrollMagic.Controller()
 
 let anim = new TimelineMax()
-fromTo("section:nth-child(2)", {x: "-100%"}, {x: "0%", ease: Linear.easeNode})
-fromTo("section:nth-child(3)", {x: "100%"}, {x: "0%", ease: Linear.easeNode})
-fromTo("section:nth-child(4)", {y: "-100%"}, {y: "0%", ease: Linear.easeNode})
+.fromTo("section:nth-child(2)", {x: "-100%"}, {x: "0%", ease: Linear.easeNode})
+.fromTo("section:nth-child(3)", {x: "100%"}, {x: "0%", ease: Linear.easeNode})
+.fromTo("section:nth-child(4)", {y: "-100%"}, {y: "0%", ease: Linear.easeNode})
 
 
     new ScrollMagic.Scene({

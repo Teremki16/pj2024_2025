@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             FindObjectOfType<HealthScript>()
-                .Damage(collision.gameObject.transform.position);
+                .Damage(collision.gameObject.transform.position);s
         }
     }
 }

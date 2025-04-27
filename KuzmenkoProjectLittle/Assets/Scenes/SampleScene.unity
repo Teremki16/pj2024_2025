@@ -16029,6 +16029,7 @@ MonoBehaviour:
   patrol: {fileID: 1674697276}
   destination: {fileID: 1674697275}
   target: {fileID: 1207276412}
+  health: 5
 --- !u!58 &1674697278
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19996,6 +19997,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913042093}
   m_CullTransparentMesh: 1
+--- !u!1 &1916234899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1916234901}
+  - component: {fileID: 1916234900}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1916234900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916234899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb903db9d399544fb48cdcf28040d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageSound: {fileID: 8300000, guid: ce035e3c5be54aa4493fc3607a18eb2f, type: 3}
+  JewelSound: {fileID: 8300000, guid: d5af7194c74b7394e8eb0812aee798ac, type: 3}
+  LevelCompleteSound: {fileID: 0}
+  GunSound: {fileID: 8300000, guid: 62c026f12d5925243b9963b31178ca01, type: 3}
+--- !u!4 &1916234901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916234899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8272572, y: 0.57410705, z: -1.567274}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920809673
 GameObject:
   m_ObjectHideFlags: 0
