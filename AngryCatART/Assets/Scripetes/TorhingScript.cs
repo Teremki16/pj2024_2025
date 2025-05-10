@@ -49,7 +49,7 @@ public class TorhingScript : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log(" стейсі не позове тебе на амереканскую тусовку");
-            FindAnyObjectByType<ResultControler>().StopWatch();
+            FindAnyObjectByType<ResultControler>().SaveResult();
         }
     }
 }
