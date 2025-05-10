@@ -57,7 +57,7 @@ public class TouchingObjects : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Congratulations you are loser");
-            FindObjectOfType<ResultControler>().StopWatch();
+            FindObjectOfType<ResultControler>().SaveResult();
         }
     }
 }
