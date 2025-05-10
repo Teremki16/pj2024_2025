@@ -157,7 +157,7 @@ function fillBoard(){
     $(".gameBoard").empty()
     board.forEach((card)=>{
         $(".gameBoard").append(`
-            <div class="card">
+            <div class="card" data-id="${card.id}" onclick="cardCliked()">
                 <div class="front">🤕</div>
                 <div class="back">
                     <img src="${card.img}" alt="">
@@ -181,4 +181,11 @@ function shuffle(array){
         array[index] = temp
     }
     return array
+}
+
+let firstCard;
+let secondCard;
+
+function cardCliked(event){
+
 }

@@ -47,7 +47,7 @@ public class ToocingObjects : MonoBehaviour
         }    
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacles")) 
         {
@@ -58,7 +58,7 @@ public class ToocingObjects : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Поздравляю");
-            FindAnyObjectByType<ResultControler>().StopWatch();
+            FindAnyObjectByType<ResultControler>().SaveResult();
         }
     }
 }
