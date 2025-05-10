@@ -38,6 +38,11 @@ public class TouchingObjects : MonoBehaviour
             Damage(collision.gameObject.GetComponent<ObsstacleSetting>()
                 .damageVaule);
         }
-        if (collision.gameObject);
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Congradulations, you're a failure!");
+            FindAnyObjectByType<ResultController>().SaveResult();
+        }
     }
 }
