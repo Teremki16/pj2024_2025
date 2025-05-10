@@ -11,6 +11,7 @@ public class TouchingObjects : MonoBehaviour
     [SerializeField] Slider hpSlider;
     [SerializeField] Image fillArea;
 
+
     private void Awake()
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform;
@@ -55,6 +56,7 @@ public class TouchingObjects : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             Destroy(gameObject);
+            FindAnyObjectByType<Resultat>().saveResult();
         }
     }
 }
