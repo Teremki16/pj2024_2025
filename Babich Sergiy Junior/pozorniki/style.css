@@ -1,0 +1,570 @@
+/* ********** Основні глобальні стилі (для Темної теми за замовчуванням) ********** */
+body {
+    background-color: #222; /* Темний фон сторінки */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f0f0f0; /* Світлий колір тексту за замовчуванням */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Вирівнювання елементів по верхньому краю */
+    min-height: 100vh; /* Мінімальна висота сторінки */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавний перехід кольорів при зміні теми */
+}
+
+.main-content-wrapper {
+    display: flex;
+    gap: 40px; /* Відстань між основними блоками */
+    flex-wrap: wrap; /* Дозволяє переносити елементи на наступний рядок на менших екранах */
+    justify-content: center; /* Центрування вмісту по горизонталі */
+    align-items: flex-start; /* Вирівнювання елементів по верхньому краю */
+    width: 100%;
+    /* Максимальна ширина обгортки вмісту */
+}
+
+.todo-container {
+    background-color: #333; /* Темний фон контейнера заміток */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тінь для глибини */
+    max-width: 400px;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Плавний перехід */
+    margin-top: 20px;
+}
+
+.todo-container h1 {
+    text-align: center;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+    display: flex; /* Для вирівнювання заголовка та перемикача теми */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стилі для перемикача теми */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: #f0f0f0; /* Колір іконки за замовчуванням (для темної теми) */
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 15px; /* Відступ від заголовка */
+    transition: color 0.3s ease;
+    padding: 5px;
+    border-radius: 50%;
+    line-height: 1; /* Запобігає додатковому відступу іконки */
+}
+
+.theme-toggle-btn:hover {
+    color: #007bff; /* Зміна кольору при наведенні */
+}
+
+/* ********** Стилі форми додавання заміток ********** */
+#todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input,
+#todo-title-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #555; /* Темна рамка */
+    border-radius: 5px;
+    background-color: #444; /* Темний фон полів вводу */
+    color: #f0f0f0; /* Світлий текст у полях */
+    font-size: 1em; /* Загальний розмір тексту */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+#todo-title-input {
+    font-size: 1.5em; /* Більший шрифт для заголовка */
+}
+
+#todo-input::placeholder,
+#todo-title-input::placeholder {
+    color: #bbb; /* Колір плейсхолдера */
+}
+
+#todo-input:focus,
+#todo-title-input:focus {
+    outline: none;
+    border-color: #007bff; /* Колір рамки при фокусі */
+}
+
+#todo-form button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Синя кнопка */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1em;
+}
+
+#todo-form button:hover {
+    background-color: #0056b3;
+}
+
+/* ********** Стилі списку заміток ********** */
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#todo-list li {
+    background-color: #444; /* Темний фон елементів списку */
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer; /* Курсор-покажчик для інтерактивності */
+    transition: background-color 0.2s ease, opacity 0.5s ease, color 0.3s ease;
+}
+
+#todo-list li:hover {
+    background-color: #555;
+}
+
+.todo-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Дозволяє займати доступний простір */
+    margin-right: 10px; /* Відступ від кнопок */
+}
+
+span.todo-title {
+    font-size: 1.5em; /* Розмір заголовка нотатки */
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+span.todo-text {
+    font-size: 0.95em; /* Розмір тексту нотатки */
+    color: #ccc;
+}
+
+span.todo-date {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.note-actions {
+    display: flex;
+    gap: 5px; /* Відстань між кнопками дій */
+}
+
+/* ********** Стилі кнопок дій (архівувати, видалити, розархівувати) ********** */
+button.archive-btn,
+button.delete-btn,
+button.unarchive-btn {
+    padding: 0; /* Прибираємо внутрішні відступи */
+    width: 38px; /* Фіксована ширина */
+    height: 38px; /* Фіксована висота */
+    display: flex; /* Використовуємо flexbox для центрування іконки */
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+    background-color: rgba(0, 0, 0, 0.3); /* Напівпрозорий фон */
+    color: white; /* Колір іконки */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    flex-shrink: 0; /* Запобігає зменшенню розміру кнопок */
+}
+
+button.unarchive-btn {
+    background-color: rgba(147, 7, 126, 0.3); /* Інший колір для розархівування */
+}
+
+button.archive-btn:hover,
+button.delete-btn:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Зміна фону при наведенні */
+}
+
+button.unarchive-btn:hover {
+    background-color: rgba(147, 7, 126, 0.5);
+}
+
+/* Розмір іконок всередині кнопок */
+button.archive-btn i,
+button.delete-btn i,
+button.unarchive-btn i {
+    font-size: 1.2em; /* Збільшуємо розмір іконок */
+}
+
+/* ********** Стилі для архівованих заміток ********** */
+
+
+.archive-container {
+    background-color: #06534898; 
+    margin: 50px; 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#archived-todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Архівовані елементи списку можуть мати схожі стилі до активних, або відмінні */
+#archived-todo-list li {
+    background-color: #097262; /* Темніший зелений для елементів архіву */
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.5s ease, color 0.3s ease;
+}
+
+#archived-todo-list li:hover {
+    background-color: #0a8e78;
+}
+
+/* ********** Стилі для редагування нотаток ********** */
+.edit-input {
+    width: 100%; /* Займає всю доступну ширину */
+    padding: 8px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #555; /* Темний фон поля редагування */
+    color: #f0f0f0; /* Світлий текст */
+    box-sizing: border-box; /* Враховує padding та border у загальній ширині */
+    font-family: Arial, sans-serif;
+    resize: vertical; /* Дозволяє змінювати висоту textarea */
+}
+
+.edit-input.title-edit {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.edit-input.text-edit {
+    font-size: 0.95em;
+    min-height: 60px; /* Мінімальна висота для textarea */
+}
+
+/* Приховування оригінального span під час редагування (керується JS) */
+.todo-item .todo-title.hidden,
+.todo-item .todo-text.hidden {
+    display: none;
+}
+
+/* ********** Стилизация кастомных карточек (если будут использоваться, пока неактивны) ********** */
+.my-custom-card {
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #f0f0f0;
+}
+
+.my-custom-card-img-top {
+    background-color: #555;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.my-custom-card-body {
+    padding: 20px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* ********** Адаптивний дизайн ********** */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column; /* Елементи вирівнюються в стовпець */
+        align-items: center; /* Центрування по горизонталі */
+        gap: 20px; /* Зменшення відступу між блоками */
+    }
+    .todo-container,
+    .archive-container,
+    .my-custom-card {
+        width: 90%; /* Блоки займають 90% ширини екрану */
+        max-width: 400px; /* Обмеження максимальної ширини */
+        margin: 0; /* Прибрати зовнішні відступи */
+    }
+
+    .todo-container h1 {
+        flex-direction: column; /* Заголовок та кнопка перемикача в стовпець */
+        margin-bottom: 15px;
+    }
+
+    .theme-toggle-btn {
+        margin-left: 0;
+        margin-top: 10px; /* Відступ від заголовка */
+    }
+
+    /* Зменшення розміру тексту на мобільних, якщо потрібно */
+    span.todo-title {
+        font-size: 1.3em;
+    }
+}
+
+/* ********** Світла тема (перевизначення стилів) ********** */
+body.light-theme {
+    background-color: #f0f2f5; /* Світліший фон сторінки */
+    color: #333; /* Темніший колір тексту */
+    margin-bottom: 8px
+}
+
+body.light-theme .todo-container {
+    background-color: #ffffff; /* Білий фон контейнера */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легша тінь */
+}
+
+body.light-theme .todo-container h1 {
+    color: #333; /* Темний заголовок */
+}
+
+body.light-theme .theme-toggle-btn {
+    color: #333; /* Колір іконки для світлої теми (темніший) */
+}
+
+body.light-theme .theme-toggle-btn:hover {
+    color: #0056b3; /* Колір при наведенні для світлої теми */
+}
+
+body.light-theme #todo-input,
+body.light-theme #todo-title-input {
+    border: 1px solid #ddd; /* Світліша рамка */
+    background-color: #f9f9f9; /* Світліший фон полів вводу */
+    color: #333; /* Темний текст у полях */
+}
+
+body.light-theme #todo-input::placeholder,
+body.light-theme #todo-title-input::placeholder {
+    color: #888; /* Темніший плейсхолдер */
+}
+
+body.light-theme #todo-form button {
+    background-color: #007bff; /* Можна залишити таким же або змінити */
+    color: white;
+}
+
+body.light-theme #todo-list li {
+    background-color: #f0f0f0; /* Світліший фон елементів списку */
+    color: #333; /* Темний текст у нотатках */
+}
+
+body.light-theme #todo-list li:hover {
+    background-color: #e0e0e0; /* Світліший фон при наведенні */
+}
+
+body.light-theme span.todo-text,
+body.light-theme span.todo-date {
+    color: #555; /* Темніші кольори для додаткового тексту */
+}
+
+body.light-theme .archive-container {
+    background-color: #c8e6c9; /* Інший, світліший колір для архіву */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme #archived-todo-list li {
+    background-color: #a5d6a7; /* Світліший зелений для елементів архіву в світлій темі */
+    color: #333;
+}
+
+body.light-theme #archived-todo-list li:hover {
+    background-color: #81c784;
+}
+
+/* Коригуємо кнопки архівування/видалення для світлої теми */
+body.light-theme button.archive-btn,
+body.light-theme button.delete-btn {
+    background-color: rgba(0, 0, 0, 0.1); /* Менш помітний фон */
+    color: #333; /* Темніші іконки */
+}
+
+body.light-theme button.unarchive-btn {
+    background-color: rgba(147, 7, 126, 0.15); /* Трохи інший відтінок */
+    color: #333; /* Темніші іконки */
+}
+
+body.light-theme button.archive-btn:hover,
+body.light-theme button.delete-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme button.unarchive-btn:hover {
+    background-color: rgba(147, 7, 126, 0.25);
+}
+
+body.light-theme .edit-input {
+    border: 1px solid #aaddff; /* Світліша рамка */
+    background-color: #ffffff; /* Білий фон */
+    color: #333; /* Темний текст */
+}
+
+.main-footer {
+    background-color: #333; /* Темний фон футера */
+    
+    color: #fff; /* Білий текст */
+    padding: 40px 0 20px;
+    font-family: 'Arial', sans-serif; /* Шрифт */
+    line-height: 1.6; /* Міжрядковий інтервал */
+}
+
+.main-footer a {
+    color: #fff; /* Колір посилань */
+    text-decoration: none; /* Прибираємо підкреслення */
+    transition: color 0.3s ease; /* Плавний перехід кольору при наведенні */
+}
+
+.main-footer a:hover {
+    color: #00bcd4; /* Колір посилань при наведенні (світло-блакитний) */
+}
+
+/* Контент футера - для колонок */
+.footer-content {
+    display: flex; /* Розміщуємо секції в рядок */
+    justify-content: space-around; /* Розподіляємо простір між ними */
+    flex-wrap: wrap; /* Дозволяємо переносити елементи на новий рядок на малих екранах */
+     /* Максимальна ширина футера */
+    margin: 0 auto; /* Центруємо футер */
+    padding: 0 20px; 
+}
+
+.footer-section {
+    flex: 1; /* Кожна секція займає рівну частину простору */
+    min-width: 280px; /* Мінімальна ширина секції, щоб не було занадто вузько */
+    margin: 20px; /* Відступи між секціями */
+}
+
+.footer-section h3 {
+    color: #00bcd4; /* Колір заголовків секцій */
+    margin-bottom: 20px; /* Відступ під заголовком */
+    font-size: 1.2em; /* Розмір шрифту заголовка */
+}
+
+/* Секція "Про нас" */
+.footer-section.about p {
+    margin-bottom: 20px;
+}
+
+.footer-section.about .contact span {
+    display: block; /* Кожен контактний елемент на новому рядку */
+    margin-bottom: 10px;
+}
+
+.footer-section.about .contact i {
+    margin-right: 10px; /* Відступ біля іконки */
+    color: #00bcd4;
+}
+
+.footer-section.about .socials a {
+    display: inline-block; /* Іконки соцмереж в рядок */
+    width: 40px;
+    height: 40px;
+    background-color: #555; /* Фон іконок */
+    border-radius: 50%; /* Кругла форма */
+    text-align: center;
+    line-height: 40px; /* Центрування іконки по вертикалі */
+    margin-right: 10px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section.about .socials a:hover {
+    background-color: #00bcd4; /* Зміна кольору при наведенні */
+}
+
+/* Секція посилань */
+.footer-section.links ul {
+    list-style: none; /* Прибираємо маркери списку */
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 10px;
+}
+
+/* Секція форми контакту */
+.footer-section.contact-form .text-input {
+    width: calc(100% - 20px); /* Ширина поля з урахуванням відступів */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555; /* Фон полів вводу */
+    color: #fff; /* Колір тексту в полях */
+}
+
+.footer-section.contact-form .text-input::placeholder {
+    color: #ccc; /* Колір placeholder */
+}
+
+.footer-section.contact-form .btn {
+    display: block; /* Кнопка на всю ширину */
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #00bcd4; /* Колір кнопки */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section.contact-form .btn:hover {
+    background-color: #008fa3; /* Зміна кольору кнопки при наведенні */
+}
+
+
+.footer-bottom {
+    background-color: #222; /* Темніший фон */
+    color: #aaa; /* Світло-сірий текст */
+    height: 50px; /* Висота блоку */
+    width: 100%;
+    text-align: center;
+    line-height: 50px; /* Центруємо текст по вертикалі */
+    margin-top: 40px; /* Відступ зверху */
+    font-size: 0.9em;
+}
+
+
+@media (max-width: 150%) {
+    .footer-content {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .footer-section {
+        margin: 20px 0;
+        text-align: center; 
+    }
+
+    .footer-section.about .contact span,
+    .footer-section.about .socials {
+        text-align: center; 
+    }
+
+    .footer-section.about .socials a {
+        margin: 0 5px; 
+    }
+}

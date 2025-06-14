@@ -33,7 +33,9 @@ public class TorhingScript : MonoBehaviour
         }
         if(health <= 0)
         {
-            Debug.Log("imkojo");
+
+
+            GameObject.Find("Canvas").GetComponent<ResultControler>().loseeResult();
             FindAnyObjectByType<PlayerMove>().isStarted = false;
             FindAnyObjectByType<ResultControler>().StopWatch();
         }
@@ -51,5 +53,33 @@ public class TorhingScript : MonoBehaviour
             Debug.Log(" стейсі не позове тебе на амереканскую тусовку");
             FindAnyObjectByType<ResultControler>().SaveResult();
         }
+        if (collision.gameObject.tag == "antiGravity") Physics2D.gravity = new Vector2(0, 10);
+        if (collision.gameObject.CompareTag("medkit") && health < 5)
+        {
+            Destroy(collision.gameObject);
+            health++;
+            hpSlider.value = health;
+        }
+        if (collision.gameObject.CompareTag("TimeBonus"))
+        {
+            Destroy(collision.gameObject);
+            if (FindAnyObjectByType<ResultControler>().currentLevelTime < 5)
+            {
+                FindAnyObjectByType<ResultControler>().currentLevelTime = 0;
+            }
+            else
+            {
+                FindAnyObjectByType<ResultControler>().currentLevelTime -= 5;
+
+            }
+
+        }
+ 
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "antiGravity") Physics2D.gravity = new Vector2(0, -10);
+        
+    }
+
 }

@@ -1,0 +1,82 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css' integrity='sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ==' crossorigin='anonymous'/>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main-content-wrapper">
+        <div class="todo-section">
+            <div class="todo-container">
+                <button id="theme-toggle" class="theme-toggle-btn">
+                        <i class="fas fa-sun"></i> </button>
+                <h1>ЗАМІТКИ</h1>
+                <form id="todo-form">
+                    <input type="text" id="todo-title-input" placeholder="введіть заголовок" required>
+                    <input type="text" id="todo-input" placeholder="введіть текст" required>
+                    <br><button type="submit">додати</button>
+                </form>
+                <ul id="todo-list">
+                    </ul>
+            </div>
+        </div>
+          <div class="archive-section">
+            <div class="archive-container" data-card-id="default-archived">
+                
+                <ul id="archived-todo-list">
+                    </ul>
+            </div>
+        </div>
+        <div id="custom-archived-cards-container">
+            </div>
+        
+         <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>Про наш додаток</h3>
+            <p>Ваші нотатки впорядковані та доступні будь-де, будь-коли. Ми робимо процес запису думок швидким та легким.</p>
+            <div class="contact">
+                <span><i class="fas fa-phone"></i> +380 12 345 6789</span>
+                <span><i class="fas fa-envelope"></i> info@yournotes.com</span>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-section links">
+            <h3>Швидкі посилання</h3>
+            <ul>
+                <li><a href="#">Головна</a></li>
+                <li><a href="#">Про нас</a></li>
+                <li><a href="#">Послуги</a></li>
+                <li><a href="#">Контакти</a></li>
+                <li><a href="#">Політика конфіденційності</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact-form">
+            <h3>Зв'яжіться з нами</h3>
+            <form action="#" method="post">
+                <input type="email" name="email" class="text-input contact-input" placeholder="Ваш Email...">
+                <textarea name="message" class="text-input contact-input" placeholder="Ваше повідомлення..."></textarea>
+                <button type="submit" class="btn btn-big contact-btn">
+                    <i class="fas fa-envelope"></i> Надіслати
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 YourNotesApp. Всі права захищені.
+    </div>
+</footer>
+</div></body>
+
+</html>

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ResultControler: MonoBehaviour
 {
-    float currentLevelTime = 0;
+    public float currentLevelTime = 0;
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] GameObject resultPanel;
     [SerializeField] TextMeshProUGUI timeResultText;
@@ -15,6 +15,11 @@ public class ResultControler: MonoBehaviour
 
     [SerializeField] GameObject NextLevelButton;
     [SerializeField] GameObject MenuButton;
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     private void Tick()
     {
        currentLevelTime += 0.1f;
@@ -56,11 +61,16 @@ public class ResultControler: MonoBehaviour
             starCount = 1;
         }
         starResultTime.SetText("Star: " + starCount.ToString());
-        starResultTime.SetText($"Star:  { starCount}");
-        float BestScore = PlayerPrefs.GetFloat("BestScore");
+        //starResultTime.SetText($"Star:  { starCount}");
+        int crl = SceneManager.GetActiveScene().buildIndex;
+        float BestScore = PlayerPrefs.GetFloat("BestScore" + crl);
+        if(BestScore == 0)
+        {
+            PlayerPrefs.SetFloat("BestScore" + crl, 999);
+        }
         if (currentLevelTime < BestScore)
         {
-            PlayerPrefs.SetFloat("BestScore", currentLevelTime);
+            PlayerPrefs.SetFloat("BestScore" + crl, currentLevelTime);
             timeResultText.SetText($"New record{currentLevelTime}");
         }
         else
@@ -99,7 +109,13 @@ public class ResultControler: MonoBehaviour
         timeResultText.SetText($"pomeeeeeeeeeeeeeeeeeeer!");
         Time.timeScale = 0;
         NextLevelButton.GetComponentInChildren<TextMeshProUGUI>().SetText("RestartLevel");
-        NextLevelButton.GetComponent<Button>().onClick.AddListener(GoToNextLevel);
+        NextLevelButton.GetComponent<Button>().onClick.AddListener(RestartLevel);
         NextLevelButton.GetComponent<Button>().onClick.AddListener(GoToMenu);
+        MenuButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Go Domou");
     } 
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
