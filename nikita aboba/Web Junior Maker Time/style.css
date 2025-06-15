@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "myfont";
+  src: url("Tiny5-Regular.ttf")
+}
+
+body {
+  display: flex;
+  background: linear-gradient(90deg,rgb(0, 43, 71), rgb(72, 0, 83), rgba(84, 0, 76));
+  justify-content: column;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: myfont;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
+.md {
+  border-radius: 5px;
+  border: 3px, solid, blue;
+  width: 500px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.md input {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: myfont;
+  border: none;
+  height: 25px;
+}
+
+.input placeholder {
+  font-size: 20px;
+  
+  
+}
+
+
+.pd{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: myfont;
+  border: none;
+  height: 25px;
+}
+
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.noteDiv{
+  max-width: 300px;
+  overflow-x: scroll;
+  scrollbar-color: red blueviolet;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  font-family: myfont;
+  height: auto;
+  flex-direction: column;
+  border: 3px, solid, violet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
