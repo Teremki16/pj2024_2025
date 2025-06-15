@@ -15,6 +15,11 @@ public class ResultControler : MonoBehaviour
 
     [SerializeField] GameObject NextLevelButton;
     [SerializeField] GameObject MenuButton;
+
+    private void Awake()
+    {
+        
+    }
     private void Tick()
     {
         currentLevelTime += 0.1f;
@@ -36,16 +41,16 @@ public class ResultControler : MonoBehaviour
         StopWatch();
         resultPanel.SetActive(true);
         int starCount = 0;
-        if(currentLevelTime < 10)
+        if (currentLevelTime < 10)
         {
             starCount = 5;
-        }else if(currentLevelTime < 20)
+        } else if (currentLevelTime < 20)
         {
             starCount = 4;
-        }else if(currentLevelTime < 40)
+        } else if (currentLevelTime < 40)
         {
             starCount = 3;
-        }else if(currentLevelTime < 100)
+        } else if (currentLevelTime < 100)
         {
             starCount = 2;
         }
@@ -54,10 +59,15 @@ public class ResultControler : MonoBehaviour
             starCount = 1;
         }
         starResultText.SetText("Star: " + starCount.ToString());
-        float BestScore = PlayerPrefs.GetFloat("BestScore");
-        if ( currentLevelTime < BestScore)
+        int crl = SceneManager.GetActiveScene().buildIndex;
+        float BestScore = PlayerPrefs.GetFloat("BestScore" + crl);
+        if (BestScore == 0) 
         {
-            PlayerPrefs.SetFloat("BestScore", currentLevelTime);
+            PlayerPrefs.SetFloat("BestScore" + crl, 9999);
+        }
+        if (currentLevelTime < BestScore)
+        {
+            PlayerPrefs.SetFloat("BestScore" + crl, currentLevelTime);
             timeResultText.SetText($"New record {currentLevelTime}");
         }
         else
@@ -66,7 +76,7 @@ public class ResultControler : MonoBehaviour
         }
         Time.timeScale = 0;
         NextLevelButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Next Level");
-        MenuButton.GetComponent<Button>().onClick.AddListener(GoToNextLevel)
+        MenuButton.GetComponent<Button>().onClick.AddListener(GoToNextLevel);
 
     }
 
@@ -90,13 +100,20 @@ public class ResultControler : MonoBehaviour
         resultPanel.SetActive(true);
         int starCount = 0;
         starResultText.SetText("Star: " + starCount.ToString());
-       
+
         timeResultText.SetText($"You ne proishov");
-        }
+
         Time.timeScale = 0;
-        NextLevelButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Next Level");
-        MenuButton.GetComponent<Button>().onClick.AddListener(GoToNextLevel)
+        NextLevelButton.GetComponentInChildren<TextMeshProUGUI>().SetText("RestartLevel");
+        MenuButton.GetComponent<Button>().onClick.AddListener(GoToNextLevel);
+        MenuButton.GetComponentInChildren<TextMeshProUGUI>().SetText("Go to Dodomu");
 
     }
+
+    void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+}
 
    

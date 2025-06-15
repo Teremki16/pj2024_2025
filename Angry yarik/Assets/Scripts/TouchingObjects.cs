@@ -11,7 +11,7 @@ public class TouchingObjects : MonoBehaviour
     [SerializeField] Slider hpSlider;
     [SerializeField] Image fillArea;
 
-    private void Awake()
+       private void Awake()
     {
         spawnPoint = GameObject.Find("SpawnPoint").transform;
         rb = GetComponent<Rigidbody2D>();
@@ -40,7 +40,7 @@ public class TouchingObjects : MonoBehaviour
         }
         if(health < 0)
         {
-            Debug.Log("I Died");
+            GameObject.Find("Canvas").GetComponent<ResultControler>().LoseResult();
             FindObjectOfType<PlayerLaunch>().isStarted = false;
             FindObjectOfType<ResultControler>().StopWatch();
         }
