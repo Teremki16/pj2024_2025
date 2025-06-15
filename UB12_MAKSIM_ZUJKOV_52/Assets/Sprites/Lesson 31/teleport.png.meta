@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: teleport_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 167
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5411575, y: 0.07127533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c67dae7c559faf479d0929f9f5b9902
+      internalID: 1289901347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 320
+        width: 166.66667
+        height: 320
+      alignment: 9
+      pivot: {x: 0.513719, y: 0.07127533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38132e027ca619a4ab1a1b14a0a6825d
+      internalID: -1299735528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_2
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 320
+        width: 166.66667
+        height: 320
+      alignment: 9
+      pivot: {x: 0.45198265, y: 0.078420736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39388b3d61b99f244aef53a67bbe3d44
+      internalID: 332982146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 167
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5273836, y: 0.06413014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdeb581959c644478c99d21cec27301
+      internalID: -2010713964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 166.66667
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5068594, y: 0.067702845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa736b6c8bd75640a4f53252933387f
+      internalID: 2099975085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teleport_5
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 166.66667
+        height: 320
+      alignment: 9
+      pivot: {x: 0.45198265, y: 0.067702845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b08c81822ce014b9702433fd0ec9b1
+      internalID: 505630287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +252,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      teleport_0: 1289901347
+      teleport_1: -1299735528
+      teleport_2: 332982146
+      teleport_3: -2010713964
+      teleport_4: 2099975085
+      teleport_5: 505630287
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

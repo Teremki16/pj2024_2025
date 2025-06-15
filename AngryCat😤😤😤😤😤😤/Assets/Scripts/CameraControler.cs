@@ -9,9 +9,9 @@ public class CameraControler : MonoBehaviour
         if (FindObjectOfType<PlayerLaunch>().canDrag == false)
         {
             Vector3 target;
-            if (GameObject.Find("CatHead") != null)
+            if (GameObject.Find("Player") != null)
             { 
-                 target = GameObject.Find("CatHead").transform.position;
+                 target = GameObject.Find("Player").transform.position;
             }
             else
             {
