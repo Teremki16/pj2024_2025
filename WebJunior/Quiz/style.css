@@ -1,0 +1,28 @@
+@font-face {
+    font-family: myfont;
+    src: url("Tiny5-Regular.ttf")
+}
+
+body {
+    font-family: myfont, sans-serif;
+    background: url("https://robotdreams.cc/ckeditor/blog/224-kak-rabotat-s-grafikoy-na-python/python.gif");
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+a {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    text-decoration: none;
+    color: rgb(255, 2, 44);
+    text-shadow: 0 0 10px rgb(145, 104, 104);
+
+}

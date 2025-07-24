@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(skyblue, white);
+}
+
+header img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+section {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    background: skyblue;
+}
+
+section:nth-child(2n){
+    background-color: white;
+}
+
+section img {
+    height: 100%;
+    padding: 1rem;
+    position: relative;
+}
